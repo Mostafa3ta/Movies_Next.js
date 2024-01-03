@@ -69,11 +69,11 @@ function Search() {
 
         {Results.length === 0 || localStorage.getItem('searchValue') === '' ? null : <>
             <div className='container text-white'>
-                <div className='d-flex '>
+                <div className='d-flex'>
                     <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Search Results </h2>
                     <i className="fa-solid text-danger fs-4 fa-magnifying-glass"></i>
-                    {Results.page !== 1 ? <div className='fs-4 px-3 py-2'>`{localStorage.getItem('searchValue')}`</div> : null}
                 </div>
+                {Results.page !== 1 ? <div className='fs-4 px-3 ms-3 mb-5'>`{localStorage.getItem('searchValue')}`</div> : null}
                 <div className='row  text-center my-2'>
                     {Results.total_results === 0 ? <h2 className='fst-italic'>No Results Found </h2> : <>
                         {Results.results?.map((result) =>

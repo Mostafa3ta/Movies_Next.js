@@ -96,7 +96,7 @@ async function SeasonDetails({ params }) {
         </> : <>
             <div className='container row  justify-content-center text-white text-white '>
                 <div className='d-flex my-4'>
-                    <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Season <span className='text-warning'>{ShowDetails.season_number}</span> Episodes :</h2>
+                    <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> {ShowDetails.name} Episodes :</h2>
                 </div>
                 {ShowDetails.episodes.length > 25 ? <>
                     <div className='col-lg-8 col-10 cast-contain rounded-4 cast-contain'>
@@ -186,7 +186,7 @@ async function SeasonDetails({ params }) {
                                         :
                                         <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
                                     }
-                                    <span className='text-warning fs-5 fw-bolder' >{`>`}  Season <span>{show.season_number}</span> {`<`}</span>
+                                    <span className='text-warning fs-5 fw-bolder' >{`>`} {show.name} {`<`}</span>
                                 </> : <>
                                     {show.poster_path === null ?
                                         <img src="/download3.jpg" className='w-100 m-2 rounded-2' />
@@ -194,7 +194,7 @@ async function SeasonDetails({ params }) {
                                         <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
                                     }
                                     <div className='d-flex '>
-                                        <span className=' py-2'> Season <span>{show.season_number}</span></span>
+                                            <span className=' py-2'>{show.name}</span>
                                     </div>
                                 </>}
                             </div>

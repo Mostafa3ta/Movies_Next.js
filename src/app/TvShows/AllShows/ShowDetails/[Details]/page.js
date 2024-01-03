@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 
 export const metadata = {
-    title : "Tv Show Details",
+    title: "Tv Show Details",
 }
 
 async function ShowDetails({ params }) {
@@ -68,8 +68,8 @@ async function ShowDetails({ params }) {
                     <hr className='text-white details-hr ' />
 
                     <div><span className='text-warning fs-5 px-1'>Geners :</span>{ShowDetails.genres.map((gener) =>
-                            <span className='px-2'>{gener.name}</span>
-                        )}
+                        <span className='px-2'>{gener.name}</span>
+                    )}
                     </div>
                     <hr className='text-white details-hr ' />
 
@@ -101,7 +101,7 @@ async function ShowDetails({ params }) {
 
                     <div><span className='text-warning fs-5 px-1'>Seasons :</span>
                         {ShowDetails.number_of_seasons === 0 ? <span className='fs-5 px-2'>Unknown</span> : <>
-                            <span className='fs-5 px-2'>{ShowDetails.seasons.length}</span>
+                            <span className='fs-5 px-2'>{ShowDetails.number_of_seasons}</span>
                         </>}
                     </div>
                     <hr className='text-white details-hr ' />
@@ -115,12 +115,15 @@ async function ShowDetails({ params }) {
 
                 </div>
             </div>
-            <div className='container mt-2 mb-5 ms-2 col-lg-5 col-md-12  text-white  '>
-                <div className='text-center'>
-                    <span className='text-warning fs-5 px-1'>Story :</span> {ShowDetails.overview}
+            {ShowDetails.overview === "" ? null : <>
+                <div className='container mt-2 mb-5 ms-2 col-lg-5 col-md-12  text-white  '>
+                    <div className='text-center'>
+                        <span className='text-warning fs-5 px-1'>Story :</span> {ShowDetails.overview}
+                    </div>
                 </div>
-            </div>
             <hr className='text-white details-hr' />
+            </>}
+
         </div>
 
         <div className='container text-white '>
@@ -137,7 +140,7 @@ async function ShowDetails({ params }) {
                                     :
                                     <img src={baseURL + show.poster_path} className='w-75 m-2 rounded-2' />
                                 }
-                                <span className='py-2'> Season <span>{show.season_number}</span></span>
+                                <span className='py-2'> {show.name}</span>
                             </div>
                         </Link>
                     </div>
@@ -153,8 +156,8 @@ async function ShowDetails({ params }) {
                 <hr className='text-white  w-75 text-center mt-3 ' />
                 <h2 className='py-4 text-center'>Cast</h2>
                 <div className='col-lg-8 col-10 cast-contain rounded-4 '>
-                    <div className='row d-flex align-items-center justify-content-center'>
-                        {Cast.cast.length === 1 ? <>
+                    <div className='row d-flex align-items-center '>
+                        {Cast.cast.length === 0 ? <>
                             {Cast.crew.map((actor) =>
                                 <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
                                     {actor.profile_path === null ?

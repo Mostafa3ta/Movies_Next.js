@@ -108,7 +108,7 @@ async function EpisodeDetails({ params }) {
 
         <div className='container row d-flex justify-content-center text-white '>
             <div className='d-flex my-4'>
-                <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Season <span className='text-warning'>{SeasonDetails.season_number}</span> Episodes :</h2>
+                <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> {SeasonDetails.name} Episodes :</h2>
             </div>
             {SeasonDetails.episodes.length > 25 ? <>
                 <div className='col-lg-8 col-10 cast-contain rounded-4 cast-contain'>
@@ -226,7 +226,7 @@ async function EpisodeDetails({ params }) {
                                         <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
                                     }
                                         <div className='d-flex '>
-                                            <span className=' py-2'> Season <span>{show.season_number}</span></span>
+                                            <span className=' py-2'>{show.name}</span>
                                         </div>
                                     </>
                                 }
