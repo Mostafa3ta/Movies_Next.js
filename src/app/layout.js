@@ -25,8 +25,8 @@ export default function RootLayout({ children }) {
                 <i className="fa-solid fs-6 fa-magnifying-glass"></i>
               </Link>
             </div>
-            <Link className="navbar-brand m-auto" href="/">
-              <h1><i className="fa-solid fa-film px-1 fw-bolder text-danger"></i> MOVIES CLUB</h1>
+            <Link className="navbar-brand d-flex m-auto" href="/">
+              <img src='/movies-club.png' className=' logo-ico'/> 
             </Link>
             <button className="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -36,8 +36,8 @@ export default function RootLayout({ children }) {
                 <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div className="offcanvas-body nav2">
-                <h4 className=' px-3  text-white '><i className="fa-solid fa-film text-danger fs-5 px-1"></i> Movies</h4>
-                <ul className="navbar-nav justify-content-end flex-grow-1 px-5 py-1 ">
+                <h4 className='  text-white '><i className="fa-solid fa-film text-danger fs-5 px-1"></i> Movies</h4>
+                <ul className="navbar-nav justify-content-end flex-grow-1 px-5 py-2 ">
                   <li className="nav-item py-2">
                     <Link href={`/Movies/AllMovies/1`} >
                       <h6 className='list-items'>All Movies</h6>
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
                   </li>
                 </ul>
                 <hr className='text-white w-75 ' />
-                <h4 className=' px-3  text-white   justify-content-start'> <i className="fa-solid fa-tv text-warning ms-0 fs-5 px-1 me-1"></i>Tv Shows</h4>
+                <h4 className='text-white  justify-content-start'> <i className="fa-solid fa-tv text-warning ms-0 fs-5 px-2 "></i>Tv Shows</h4>
                 <ul className="navbar-nav justify-content-end flex-grow-1  px-5 py-1 ">
                   <li className="nav-item py-2 ">
                     <Link href={`/TvShows/AllShows/1`} >
@@ -107,14 +107,14 @@ export default function RootLayout({ children }) {
         <div className=' col-sm-10 py-2 text-center d-flex justify-content-center align-items-center content-margain ms-auto me-3 nav1'>
           <div className='col-sm-4 m-auto'>
             <Link href="/" className='text-white ms-0 px-0 navbar-brand' >
-              <h1> <i className="fa-solid fa-film text-danger logo-ico "></i> MOVIES CLUB</h1>
+            <img src='/movies-club.png' className=' logo-ico'/>
             </Link>
           </div>
-          <Link href={`/Search/1`} className='search-btn btn btn-outline-warning py-2 rounded-4 cursor-pointer col-sm-1'>
+          <Link href={`/Search/1`} className='search-btn btn btn-outline-warning py-2 d-flex  rounded-4 cursor-pointer col-sm-1'>
             <div><i className="fa-solid fs-6 fa-magnifying-glass"></i> Search</div>
           </Link>
         </div>
-        <hr className='text-white w-100 text-center mt-0' />
+        <hr className='text-white w-100 text-center nav-1-hr mt-2' />
 
 
         <div className='container '>

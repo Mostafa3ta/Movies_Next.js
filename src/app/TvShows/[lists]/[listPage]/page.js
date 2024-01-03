@@ -33,19 +33,19 @@ async function movieListNum({ params }) {
             {listType === 'top_rated' ?
                 <div className='d-flex '>
                     <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Top Rated </h2>
-                    <i className="fa-solid text-warning px-2 py-3 fs-4 fa-star"></i>
+                    <i className="fa-solid text-warning px-2 mt-1 fs-4 fa-star"></i>
                 </div>
                 : null}
             {listType === 'on_the_air' ?
                 <div className='d-flex '>
                     <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> On The Air </h2>
-                    <i className="fa-solid text-warning px-2 py-3 fs-3 fa-fire-flame-curved"></i>
+                    <i className="fa-solid text-warning px-2 mt-1 fs-4 fa-fire-flame-curved"></i>
                 </div>
                 : null}
             {listType === 'airing_today' ?
                 <div className='d-flex '>
                     <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Airing Today</h2>
-                    <i className="fa-solid text-warning px-2 py-3 fs-3 fa-circle-play"></i>
+                    <i className="fa-solid text-warning px-2 mt-1 fs-4 fa-circle-play"></i>
                 </div>
                 : null}
             {listType === 'upcoming' ?

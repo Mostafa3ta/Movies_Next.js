@@ -30,7 +30,7 @@ export default async function AllMoviePages({ params }) {
         <div className='container text-white '>
             <div className='d-flex '>
                 <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> All TV Shows</h2>
-                <i className="fa-solid text-warning px-2 py-3 fs-3 fa-tv"></i>
+                <i className="fa-solid text-warning px-2 mt-2 fs-2 fs-3 fa-tv"></i>
             </div>
             <div className='row text-center text-white'>
                 {TvShows.results.map((show) =>
