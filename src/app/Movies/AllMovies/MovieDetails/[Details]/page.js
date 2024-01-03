@@ -152,7 +152,7 @@ async function MovieDetails({ params }) {
                 <div className='container  my-3  row d-flex justify-content-center text-white'>
                     <hr className='text-white  w-75 text-center mt-3 ' />
                     <h2 className='py-4 text-center'>Recommended Movies</h2>
-                    <div className='row align-items-center col-lg-8 col-10  text-center my-2 recom-contain'>
+                    <div className='row col-lg-8 col-10  text-center my-2 recom-contain'>
                         {Simi.results.length === 0 ? <>
                             {Recommend.results.map((movie) =>
                                 <div className='col-lg-3 col-md-4 col-6 m-1 px-2'>

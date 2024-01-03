@@ -175,7 +175,7 @@ async function SeasonDetails({ params }) {
             <div className='d-flex my-4'>
                 <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> All Seasons :</h2>
             </div>
-            <div className='row text-center align-items-center col-lg-10 col-12 text-white recom-contain'>
+            <div className='row text-center col-lg-10 col-12 text-white recom-contain'>
                 {ShowName.seasons.map((show) =>
                     <div className='col-lg-3 col-md-4 col-6  my-2  '>
                         <Link href={`/TvShows/Season/${ShowId}/${show.season_number}`}>
