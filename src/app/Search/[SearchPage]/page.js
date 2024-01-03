@@ -73,7 +73,7 @@ function Search() {
                     <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Search Results </h2>
                     <i className="fa-solid text-danger fs-4 fa-magnifying-glass"></i>
                 </div>
-                {Results.page !== 1 ? <div className='fs-4 px-3 ms-3 mb-5'>`{localStorage.getItem('searchValue')}`</div> : null}
+                <div className='fs-4 px-3 ms-3 mb-5'>`{localStorage.getItem('searchValue')}`</div>
                 <div className='row  text-center my-2'>
                     {Results.total_results === 0 ? <h2 className='fst-italic'>No Results Found </h2> : <>
                         {Results.results?.map((result) =>
