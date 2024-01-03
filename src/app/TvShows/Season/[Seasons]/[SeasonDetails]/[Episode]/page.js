@@ -218,7 +218,7 @@ async function EpisodeDetails({ params }) {
                                         :
                                         <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
                                     }
-                                        <span className='text-warning fs-5 fw-bolder' >{`>`} Season <span>{show.season_number}</span> {`<`}</span>
+                                        <span className='text-warning fs-5 fw-bolder' >{`>`} {show.name} {`<`}</span>
                                     </>
                                     : <>{show.poster_path === null ?
                                         <img src="/download3.jpg" className='w-100 m-2 rounded-2' />
