@@ -73,6 +73,10 @@ async function ShowDetails({ params }) {
                     </div>
                     <hr className='text-white details-hr ' />
 
+                    <div><span className='text-warning fs-5 px-1'>Rate :</span> imdb  {ShowDetails.vote_average.toString(10).split('').splice(0,3).join('')}/10 <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
+                    <hr className='text-white details-hr ' />
+
+
                     <div><span className='text-warning fs-5 px-1'>Status :</span> {ShowDetails.status}</div>
                     <hr className='text-white details-hr ' />
 

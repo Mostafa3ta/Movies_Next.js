@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 
 export const metadata = {
-    title : "Tv Show Season",
+    title: "Tv Show Season",
 }
 
 async function SeasonDetails({ params }) {
@@ -63,6 +63,9 @@ async function SeasonDetails({ params }) {
                     <hr className='text-white details-hr ' />
 
                     <h5 className='title fw-bolder px-1 text-warning py-2'> {ShowDetails.name} </h5>
+                    <hr className='text-white details-hr ' />
+
+                    <div><span className='text-warning fs-5 px-1'>Rate :</span> <span className='fs-5'> imdb  {ShowDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
                     <hr className='text-white details-hr ' />
 
                     <div><span className='text-warning fs-5 px-1'>Episodes :</span>
@@ -194,7 +197,7 @@ async function SeasonDetails({ params }) {
                                         <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
                                     }
                                     <div className='d-flex '>
-                                            <span className=' py-2'>{show.name}</span>
+                                        <span className=' py-2'>{show.name}</span>
                                     </div>
                                 </>}
                             </div>

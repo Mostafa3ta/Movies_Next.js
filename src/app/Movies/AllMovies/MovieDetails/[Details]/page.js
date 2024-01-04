@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 
 export const metadata = {
-    title : "Movie Details",
+    title: "Movie Details",
 }
 
 async function MovieDetails({ params }) {
@@ -26,6 +26,7 @@ async function MovieDetails({ params }) {
         }
     })
     const movieDetails = await response.json()
+    const movieRate = movieDetails.vote_average
 
     const response1 = await fetch(`https://api.themoviedb.org/3/movie/${MovieID}/credits`, options, {
         next: {
@@ -70,6 +71,9 @@ async function MovieDetails({ params }) {
 
                     <div><span className='text-warning fs-5 px-1'>Geners :</span> {movieDetails.genres?.map((gener) => <span className='px-2 fs-5'>
                         {gener.name}</span>)}</div>
+                    <hr className='text-white details-hr ' />
+
+                    <div><span className='text-warning fs-5 px-1'>Rate :</span> imdb  {movieDetails.vote_average.toString(10).split('').splice(0,3).join('')}/10 <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
                     <hr className='text-white details-hr ' />
 
                     <div><span className='text-warning fs-5 px-1'>Status :</span> {movieDetails.status}</div>

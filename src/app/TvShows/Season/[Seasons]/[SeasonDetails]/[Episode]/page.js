@@ -81,6 +81,9 @@ async function EpisodeDetails({ params }) {
                     </div>
                     <hr className='text-white details-hr ' />
 
+                    <div><span className='text-warning fs-5 px-3'>Rate :</span> <span className='fs-5 '> imdb  {SeasonDetails.vote_average.toString(10).split('').splice(0,3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
+                    <hr className='text-white details-hr ' />
+
                     <div><span className='text-warning px-3 fs-5 px-1'>RunTime :</span>
                         {EpisodeDetails.runtime === 0 ? <span className='fst-italic'>Unknown</span> : <>
                             <span className='fs-5 '>{EpisodeDetails.runtime}</span>
