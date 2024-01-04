@@ -73,7 +73,7 @@ async function ShowDetails({ params }) {
                     </div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Rate :</span> imdb  {ShowDetails.vote_average.toString(10).split('').splice(0,3).join('')}/10 <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
+                    <div><span className='text-warning fs-5 px-1'>Rate :</span> imdb  {ShowDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
                     <hr className='text-white details-hr ' />
 
 
@@ -91,17 +91,6 @@ async function ShowDetails({ params }) {
                             {country.name}</span>)}</div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>First Air Date :</span>
-                        {ShowDetails.first_air_date === "" ? <span>Unknown</span> :
-                            <span className='fs-6 px-2'>{ShowDetails.first_air_date}</span>
-                        }
-                    </div>
-                    <div><span className='text-warning fs-5 px-1'>Last Air Date :</span>
-                        {ShowDetails.last_air_date === null ? <span>TBD</span> :
-                            <span className='fs-6 px-2'>{ShowDetails.last_air_date}</span>
-                        }
-                    </div>
-                    <hr className='text-white details-hr ' />
 
                     <div><span className='text-warning fs-5 px-1'>Seasons :</span>
                         {ShowDetails.number_of_seasons === 0 ? <span className='fs-5 px-2'>Unknown</span> : <>
@@ -117,6 +106,18 @@ async function ShowDetails({ params }) {
                     </div>
                     <hr className='text-white details-hr ' />
 
+                    <div><span className='text-warning fs-5 px-1'>First Air Date :</span>
+                        {ShowDetails.first_air_date === "" ? <span>Unknown</span> :
+                            <span className='fs-6 px-2'>{ShowDetails.first_air_date}</span>
+                        }
+                    </div>
+                    <div><span className='text-warning fs-5 px-1'>Last Air Date :</span>
+                        {ShowDetails.last_air_date === null ? <span>TBD</span> :
+                            <span className='fs-6 px-2'>{ShowDetails.last_air_date}</span>
+                        }
+                    </div>
+                    <hr className='text-white details-hr ' />
+
                 </div>
             </div>
             {ShowDetails.overview === "" ? null : <>
@@ -125,7 +126,7 @@ async function ShowDetails({ params }) {
                         <span className='text-warning fs-5 px-1'>Story :</span> {ShowDetails.overview}
                     </div>
                 </div>
-            <hr className='text-white details-hr' />
+                <hr className='text-white details-hr' />
             </>}
 
         </div>
