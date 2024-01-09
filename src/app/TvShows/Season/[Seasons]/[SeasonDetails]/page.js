@@ -56,7 +56,7 @@ async function SeasonDetails({ params }) {
 
                 </div>
                 <div className='py-2 col-lg-6 col-md-12  movie-Content'>
-                    <h2 className='title fw-bolder text-center text-warning py-2 mb-1'> {ShowName.original_name} </h2>
+                    <h2 className='title fw-bolder text-center text-warning py-2 mb-1'> {ShowName.name} </h2>
                     <hr className='text-white details-hr ' />
 
                     <div className='px-1'><h5> <i className="fa-solid fa-tv text-warning fs-5 me-1"></i> Tv Series</h5> </div>
@@ -65,7 +65,11 @@ async function SeasonDetails({ params }) {
                     <h5 className='title fw-bolder px-1 text-warning py-2'> {ShowDetails.name} </h5>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Rate :</span> <span className='fs-5'> imdb  {ShowDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
+                    <div><span className='text-warning fs-5 px-1'>Rate :</span>
+                        {ShowDetails.vote_average === 0 ? <span className='fs-5'> Not Rated</span> : <>
+                            <span className='fs-5 '> imdb  {ShowDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i>
+                        </>}
+                    </div>
                     <hr className='text-white details-hr ' />
 
                     <div><span className='text-warning fs-5 px-1'>Episodes :</span>
