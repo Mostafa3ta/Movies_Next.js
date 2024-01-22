@@ -20,9 +20,9 @@ export default function RootLayout({ children }) {
       <body>
         <nav className="navbar nav2 navbar-dark fixed-top">
           <div className="container-fluid ">
-            <div className='d-flex'>
-              <Link href={`/Search/1`} className='search-btn btn btn-outline-warning mt-0 mb-1 rounded-4 ms-0 cursor-pointer col-sm-1'>
-                <i className="fa-solid fs-6 fa-magnifying-glass"></i>
+            <div className='d-flex justify-content-center'>
+              <Link href={`/Search/1`} className=' cursor-pointer col-sm-1'>
+                <i className="fa-solid search-btn btn btn-outline-warning rounded-4 text-white fs-6 fa-magnifying-glass"></i>
               </Link>
             </div>
             <Link className="navbar-brand d-flex m-auto" href="/">
@@ -110,7 +110,7 @@ export default function RootLayout({ children }) {
             <img src='/movies-club.png' className=' logo-ico'/>
             </Link>
           </div>
-          <Link href={`/Search/1`} className='search-btn btn btn-outline-warning py-2 d-flex  rounded-4 cursor-pointer col-sm-1'>
+          <Link href={`/Search/1`} className='search-btn btn btn-outline-warning py-2 d-flex justify-content-center rounded-4 cursor-pointer col-sm-1'>
             <div><i className="fa-solid fs-6 fa-magnifying-glass"></i> Search</div>
           </Link>
         </div>

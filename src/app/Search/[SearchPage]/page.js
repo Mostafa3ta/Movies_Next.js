@@ -60,15 +60,15 @@ function Search() {
             <title>Search</title>
         </Helmet>
 
-        <div className='col-sm-10 py-2 text-center content-margain ms-auto'>
-            <form className="form-control search-form w-50 m-auto ">
-                <input type="text" onChange={(e) => handleChange(e.target.value)} placeholder="Search for..." className="search-input rounded-0 form-control" />
-                <button type="button" className="btn"><i className="fa-solid fs-6 search-icon fa-magnifying-glass"></i></button>
-            </form>
-        </div>
+        <div className='container text-white'>
+            <div className='col-sm-10 py-2 my-3 text-center content-margain ms-auto'>
+                <form className="form-control search-form w-50 m-auto ">
+                    <input type="text" onChange={(e) => handleChange(e.target.value)} placeholder="Search for..." className="search-input rounded-0 form-control" />
+                    <button type="button" className="btn"><i className="fa-solid fs-6 search-icon fa-magnifying-glass"></i></button>
+                </form>
+            </div>
 
-        {Results.length === 0 || localStorage.getItem('searchValue') === '' ? null : <>
-            <div className='container text-white'>
+            {Results.length === 0 || localStorage.getItem('searchValue') === '' ? null : <>
                 <div className='d-flex'>
                     <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Search Results </h2>
                     <i className="fa-solid text-danger fs-4 fa-magnifying-glass"></i>
@@ -144,9 +144,9 @@ function Search() {
                         </div>
                     </>}
                 </div>
-            </div>
-        </>}
+            </>}
 
+        </div>
     </>
 }
 

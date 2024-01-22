@@ -112,7 +112,7 @@ async function EpisodeDetails({ params }) {
                 </div>
             </div>
             <hr className='text-white details-hr' />
-        </div >
+        
 
         <div className='container row d-flex justify-content-center text-white '>
             <div className='d-flex my-4'>
@@ -244,6 +244,8 @@ async function EpisodeDetails({ params }) {
                 )}
             </div>
         </div>
+
+        </div >
     </>
 }
 

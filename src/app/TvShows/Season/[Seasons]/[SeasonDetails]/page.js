@@ -90,26 +90,44 @@ async function SeasonDetails({ params }) {
                 </div>
             </div>
 
-        </div >
-        <hr className='text-white details-hr' />
 
-        {ShowDetails.episodes.length === 0 ? <>
-            <div className='container text-white '>
-                <div className='d-flex my-2'>
-                    <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Season <span className='text-warning'>{ShowDetails.season_number}</span> Episodes :</h2>
-                    <h3 className=' fst-italic ms-4 mt-3'> No Episodes To Show</h3>
+            <hr className='text-white details-hr' />
+
+            {ShowDetails.episodes.length === 0 ? <>
+                <div className='container text-white '>
+                    <div className='d-flex my-2'>
+                        <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Season <span className='text-warning'>{ShowDetails.season_number}</span> Episodes :</h2>
+                        <h3 className=' fst-italic ms-4 mt-3'> No Episodes To Show</h3>
+                    </div>
                 </div>
-            </div>
-        </> : <>
-            <div className='container row  justify-content-center text-white text-white '>
-                <div className='d-flex my-4'>
-                    <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> {ShowDetails.name} Episodes :</h2>
-                </div>
-                {ShowDetails.episodes.length > 25 ? <>
-                    <div className='col-lg-8 col-10 cast-contain rounded-4 cast-contain'>
-                        <div className='row d-flex align-items-center'>
+            </> : <>
+                <div className='container row  justify-content-center text-white text-white '>
+                    <div className='d-flex my-4'>
+                        <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> {ShowDetails.name} Episodes :</h2>
+                    </div>
+                    {ShowDetails.episodes.length > 25 ? <>
+                        <div className='col-lg-8 col-10 cast-contain rounded-4 cast-contain'>
+                            <div className='row d-flex align-items-center'>
+                                {ShowDetails.episodes.map((episode) =>
+                                    <div className='col-lg-3 col-md-4 col-6  my-2  '>
+                                        <Link href={`/TvShows/Season/${ShowId}/${ShowDetails.season_number}/${episode.episode_number}`}>
+                                            <div className='d-flex align-items-center flex-column img-content'>
+                                                {episode.still_path === null ?
+                                                    <img src="/download4.jpg" className='w-75 m-2 rounded-2' />
+                                                    :
+                                                    <img src={baseURL + episode.still_path} className='w-75 m-2 rounded-2' />
+                                                }
+                                                <span >Episode  {episode.episode_number}</span>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </> : <>
+                        <div className='row align-items-center text-center ms-2 text-white'>
                             {ShowDetails.episodes.map((episode) =>
-                                <div className='col-lg-3 col-md-4 col-6  my-2  '>
+                                <div className=' col-md-3 col-sm-4 col-6  my-2  '>
                                     <Link href={`/TvShows/Season/${ShowId}/${ShowDetails.season_number}/${episode.episode_number}`}>
                                         <div className='d-flex align-items-center flex-column img-content'>
                                             {episode.still_path === null ?
@@ -123,93 +141,77 @@ async function SeasonDetails({ params }) {
                                 </div>
                             )}
                         </div>
-                    </div>
-                </> : <>
-                    <div className='row align-items-center text-center ms-2 text-white'>
-                        {ShowDetails.episodes.map((episode) =>
-                            <div className=' col-md-3 col-sm-4 col-6  my-2  '>
-                                <Link href={`/TvShows/Season/${ShowId}/${ShowDetails.season_number}/${episode.episode_number}`}>
-                                    <div className='d-flex align-items-center flex-column img-content'>
-                                        {episode.still_path === null ?
-                                            <img src="/download4.jpg" className='w-75 m-2 rounded-2' />
-                                            :
-                                            <img src={baseURL + episode.still_path} className='w-75 m-2 rounded-2' />
-                                        }
-                                        <span >Episode  {episode.episode_number}</span>
-                                    </div>
-                                </Link>
-                            </div>
-                        )}
-                    </div>
-                </>}
-            </div>
-        </>}
+                    </>}
+                </div>
+            </>}
 
-        {Cast.cast.length === 0 && Cast.crew.length === 0 ? null : <>
-            <div className='container my-3 row d-flex justify-content-center text-center text-white'>
-                <hr className='text-white  w-75 text-center mt-3 ' />
-                <h2 className='py-4 text-center'>Cast  &  Crew</h2>
-                <div className='col-lg-8 col-10 cast-contain rounded-4 '>
-                    <div className='row '>
-                        {Cast.cast.length === 0 ? <>
-                            {Cast.crew.map((actor) =>
-                                <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
-                                    {actor.profile_path === null ?
-                                        <img src="/download3.jpg" className=' w-50 rounded-5' /> :
-                                        <img src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
-                                    <span>{actor.name}</span>
-                                    <span className='text-warning'>{actor.job}</span>
-                                </div>
-                            )} </> :
-                            <>
-                                {Cast.cast.map((actor) =>
+            {Cast.cast.length === 0 && Cast.crew.length === 0 ? null : <>
+                <div className='container my-3 row d-flex justify-content-center text-center text-white'>
+                    <hr className='text-white  w-75 text-center mt-3 ' />
+                    <h2 className='py-4 text-center'>Cast  &  Crew</h2>
+                    <div className='col-lg-8 col-10 cast-contain rounded-4 '>
+                        <div className='row '>
+                            {Cast.cast.length === 0 ? <>
+                                {Cast.crew.map((actor) =>
                                     <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
                                         {actor.profile_path === null ?
                                             <img src="/download3.jpg" className=' w-50 rounded-5' /> :
                                             <img src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
                                         <span>{actor.name}</span>
-                                        <span className='text-warning'>{actor.character}</span>
+                                        <span className='text-warning'>{actor.job}</span>
                                     </div>
-                                )}
-                            </>}
+                                )} </> :
+                                <>
+                                    {Cast.cast.map((actor) =>
+                                        <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
+                                            {actor.profile_path === null ?
+                                                <img src="/download3.jpg" className=' w-50 rounded-5' /> :
+                                                <img src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
+                                            <span>{actor.name}</span>
+                                            <span className='text-warning'>{actor.character}</span>
+                                        </div>
+                                    )}
+                                </>}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </>}
+            </>}
 
-        <div className='container mt-3 mb-5 row d-flex justify-content-center text-white '>
-            <hr className='text-white  w-75 text-center mt-3 ' />
-            <div className='d-flex my-4'>
-                <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> All Seasons :</h2>
+            <div className='container mt-3 mb-5 row d-flex justify-content-center text-white '>
+                <hr className='text-white  w-75 text-center mt-3 ' />
+                <div className='d-flex my-4'>
+                    <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> All Seasons :</h2>
+                </div>
+                <div className='row text-center col-lg-10 col-12 text-white recom-contain'>
+                    {ShowName.seasons.map((show) =>
+                        <div className='col-lg-3 col-md-4 col-6  my-2  '>
+                            <Link href={`/TvShows/Season/${ShowId}/${show.season_number}`}>
+                                <div className='d-flex align-items-center  flex-column img-content'>
+                                    {show.name === ShowDetails.name ? <>
+                                        {show.poster_path === null ?
+                                            <img src="/download3.jpg" className='w-100 m-2 rounded-2' />
+                                            :
+                                            <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
+                                        }
+                                        <span className='text-warning fs-5 fw-bolder' >{`>`} {show.name} {`<`}</span>
+                                    </> : <>
+                                        {show.poster_path === null ?
+                                            <img src="/download3.jpg" className='w-100 m-2 rounded-2' />
+                                            :
+                                            <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
+                                        }
+                                        <div className='d-flex '>
+                                            <span className=' py-2'>{show.name}</span>
+                                        </div>
+                                    </>}
+                                </div>
+                            </Link>
+                        </div>
+                    )}
+                </div>
             </div>
-            <div className='row text-center col-lg-10 col-12 text-white recom-contain'>
-                {ShowName.seasons.map((show) =>
-                    <div className='col-lg-3 col-md-4 col-6  my-2  '>
-                        <Link href={`/TvShows/Season/${ShowId}/${show.season_number}`}>
-                            <div className='d-flex align-items-center  flex-column img-content'>
-                                {show.name === ShowDetails.name ? <>
-                                    {show.poster_path === null ?
-                                        <img src="/download3.jpg" className='w-100 m-2 rounded-2' />
-                                        :
-                                        <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
-                                    }
-                                    <span className='text-warning fs-5 fw-bolder' >{`>`} {show.name} {`<`}</span>
-                                </> : <>
-                                    {show.poster_path === null ?
-                                        <img src="/download3.jpg" className='w-100 m-2 rounded-2' />
-                                        :
-                                        <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
-                                    }
-                                    <div className='d-flex '>
-                                        <span className=' py-2'>{show.name}</span>
-                                    </div>
-                                </>}
-                            </div>
-                        </Link>
-                    </div>
-                )}
-            </div>
-        </div>
+
+        </div >
     </>
 }
 

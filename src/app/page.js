@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata = {
-  title : "Home",
+  title: "Home",
 }
 
 export default async function Home() {
@@ -36,35 +36,35 @@ export default async function Home() {
 
   return <>
 
-    <div className='container  my-3 row d-flex justify-content-center text-white'>
-      <div className='d-flex '>
-        <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Trending Tv Shows</h2>
-        <i className="fa-solid text-warning fs-4 fa-arrow-trend-up"></i>
-      </div>
-      <div className='row col-lg-10 col-10 text-center my-2 recom-contain'>
-        {TvShows.results.map((show) =>
-          <div className='col-lg-3 col-md-4 col-6  m-1 px-2'>
-            <Link className='linkAttr' href={`/TvShows/AllShows/ShowDetails/${show.id}`}>
-              <div className='d-flex align-items-center flex-column img-content'>
-                {show.poster_path === null ?
-                  <img src="/download2.png" className='rounded-2 w-100 m-2 movieCont poster-img ' alt='NO POSTER FOUND' /> :
-                  <img src={baseURL + show.poster_path} className='rounded-2 w-100 m-2 movieCont ' alt='NO POSTER FOUND' />
-                }
-                <span>{show.name}</span>
-              </div>
-            </Link>
-          </div>
-        )}
-        <div className='d-flex  justify-content-center col-lg-3 col-md-4 col-6  m-1 px-2 align-items-center'>
-          <Link href={`/TvShows/Trending/${TvShows.page}`}>
-            <button className=' btn rounded-3 btn-warning'>View More Shows <i className="fa-solid fa-angles-right"></i></button>
-          </Link>
-        </div>
-      </div >
-    </div >
-    <hr className='text-white fw-bold mb-5 m-auto w-75  ' />
 
     <div className='container text-white'>
+      <div className=' my-3 row d-flex justify-content-center text-white'>
+        <div className='d-flex '>
+          <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Trending Tv Shows</h2>
+          <i className="fa-solid text-warning fs-4 fa-arrow-trend-up"></i>
+        </div>
+        <div className='row col-lg-10 col-10 text-center my-2 recom-contain'>
+          {TvShows.results.map((show) =>
+            <div className='col-lg-3 col-md-4 col-6  m-1 px-2'>
+              <Link className='linkAttr' href={`/TvShows/AllShows/ShowDetails/${show.id}`}>
+                <div className='d-flex align-items-center flex-column img-content'>
+                  {show.poster_path === null ?
+                    <img src="/download2.png" className='rounded-2 w-100 m-2 movieCont poster-img ' alt='NO POSTER FOUND' /> :
+                    <img src={baseURL + show.poster_path} className='rounded-2 w-100 m-2 movieCont ' alt='NO POSTER FOUND' />
+                  }
+                  <span>{show.name}</span>
+                </div>
+              </Link>
+            </div>
+          )}
+          <div className='d-flex  justify-content-center col-lg-3 col-md-4 col-6  m-1 px-2 align-items-center'>
+            <Link href={`/TvShows/Trending/${TvShows.page}`}>
+              <button className=' btn rounded-3 btn-warning'>View More Shows <i className="fa-solid fa-angles-right"></i></button>
+            </Link>
+          </div>
+        </div >
+      </div >
+      <hr className='text-white fw-bold mb-5 m-auto w-75  ' />
       <div className='d-flex '>
         <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Trending Movies</h2>
         <i className="fa-solid text-danger fs-4 fa-arrow-trend-up"></i>
