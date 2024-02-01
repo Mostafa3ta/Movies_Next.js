@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
               </Link>
             </div>
             <Link className="navbar-brand d-flex m-auto" href="/">
-              <img src='/movies-club.png' className=' logo-ico'/> 
+              <img src='/movies-club.png' className=' logo-ico' />
             </Link>
             <button className="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -107,7 +107,7 @@ export default function RootLayout({ children }) {
         <div className=' col-sm-10 py-2 text-center d-flex justify-content-center align-items-center content-margain ms-auto me-3 nav1'>
           <div className='col-sm-4 m-auto'>
             <Link href="/" className='text-white ms-0 px-0 navbar-brand' >
-            <img src='/movies-club.png' className=' logo-ico'/>
+              <img src='/movies-club.png' className=' logo-ico' />
             </Link>
           </div>
           <Link href={`/Search/1`} className='search-btn btn btn-outline-warning py-2 d-flex justify-content-center rounded-4 cursor-pointer col-sm-1'>
@@ -189,6 +189,24 @@ export default function RootLayout({ children }) {
         <div className=' col-sm-10 content-margain ms-auto'>
           {children}
         </div>
+        <hr className='text-white w-100 text-center nav-1-hr mt-2 mb-0' />
+
+        <footer className=" col-sm-10 ms-auto media-side text-center text-white">
+          <div className="container  pb-0">
+            {/* <div className='col-6'>Follow Us :</div> */}
+            <section className=" ">
+              <Link className="m-1" href="https://www.facebook.com/profile.php?id=100007766405910&ref=xav_ig_profile_web" target='_blank' role="button">
+                <i className="fab fs-4 m-2 fa-facebook-f"></i></Link>
+
+              <Link className="m-1" href="https://www.linkedin.com/in/mostafa-mahmoud-33a1542b0" target='_blank' role="button">
+                <i className="fab fs-4 m-2 fa-instagram"></i></Link>
+
+              <Link className=" m-1" href="https://github.com/Mostafa3ta" target='_blank' role="button">
+                <i className="fab fs-4 m-2 fa-github"></i></Link>
+            </section>
+          </div>
+        </footer>
+        
         <Script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></Script>
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></Script>
       </body>

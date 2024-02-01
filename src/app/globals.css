@@ -230,7 +230,7 @@ main {
   position: fixed;
   overflow: auto;
   overflow-x: hidden;
-  left: 5px;
+  left: 0px;
   top: 0px;
   bottom: 0px;
   font-weight: lighter;
@@ -238,6 +238,18 @@ main {
   background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 100, 1) 100%, rgba(0, 212, 255, 1) 100%);
   z-index: 99999;
 }
+
+.media-side {
+  bottom: 0;
+  padding: 10px 0px;
+}
+.media-side i{
+  transition: all .4s ease;
+}
+.media-side i:hover{
+  color: rgb(192, 137, 244);
+}
+
 
 
 ::-webkit-scrollbar {
