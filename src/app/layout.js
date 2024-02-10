@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        
         <nav className="navbar nav2 navbar-dark fixed-top">
           <div className="container-fluid ">
             <div className='d-flex justify-content-center'>
@@ -59,17 +60,18 @@ export default function RootLayout({ children }) {
                     </Link>
                   </li>
                   <li className="nav-item py-2">
-                    <Link href={`/Movies/top_rated/1`} className='text-white   text-decoration-none' >
+                    <Link href={`/Movies/top_rated/1`} >
                       <h6 className='list-items'>Top Rated</h6>
                     </Link>
                   </li>
                   <li className="nav-item py-2">
-                    <Link href={`/Movies/upcoming/1`} className='text-white   text-decoration-none' >
+                    <Link href={`/Movies/upcoming/1`} >
                       <h6 className='list-items'>Upcoming</h6>
                     </Link>
                   </li>
                 </ul>
                 <hr className='text-white w-75 ' />
+                
                 <h4 className='text-white  justify-content-start'> <i className="fa-solid fa-tv text-warning ms-0 fs-5 px-2 "></i>Tv Shows</h4>
                 <ul className="navbar-nav justify-content-end flex-grow-1  px-5 py-1 ">
                   <li className="nav-item py-2 ">
@@ -191,10 +193,9 @@ export default function RootLayout({ children }) {
         </div>
         <hr className='text-white w-100 text-center nav-1-hr mt-2 mb-0' />
 
-        <footer className=" col-sm-10 ms-auto media-side text-center text-white">
+        <footer className=" col-sm-10 content-margain ms-auto media-side text-center text-white">
           <div className="container  pb-0">
-            {/* <div className='col-6'>Follow Us :</div> */}
-            <section className=" ">
+            <section>
               <Link className="m-1" href="https://www.facebook.com/profile.php?id=100007766405910&ref=xav_ig_profile_web" target='_blank' role="button">
                 <i className="fab fs-4 m-2 fa-facebook-f"></i></Link>
 

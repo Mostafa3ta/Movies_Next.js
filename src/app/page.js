@@ -46,7 +46,7 @@ export default async function Home() {
         <div className='row col-lg-10 col-10 text-center my-2 recom-contain'>
           {TvShows.results.map((show) =>
             <div className='col-lg-3 col-md-4 col-6  m-1 px-2'>
-              <Link className='linkAttr' href={`/TvShows/AllShows/ShowDetails/${show.id}`}>
+              <Link href={`/TvShows/AllShows/ShowDetails/${show.id}`}>
                 <div className='d-flex align-items-center flex-column img-content'>
                   {show.poster_path === null ?
                     <img src="/download2.png" className='rounded-2 w-100 m-2 movieCont poster-img ' alt='NO POSTER FOUND' /> :
@@ -65,6 +65,8 @@ export default async function Home() {
         </div >
       </div >
       <hr className='text-white fw-bold mb-5 m-auto w-75  ' />
+
+      
       <div className='d-flex '>
         <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> Trending Movies</h2>
         <i className="fa-solid text-danger fs-4 fa-arrow-trend-up"></i>
@@ -72,7 +74,7 @@ export default async function Home() {
       <div className='row text-center my-2 '>
         {movies.results.map((movie) =>
           <div className='col-lg-3 col-md-4 col-6  my-2 px-2'>
-            <Link className='linkAttr' href={`/Movies/AllMovies/MovieDetails/${movie.id}`}>
+            <Link href={`/Movies/AllMovies/MovieDetails/${movie.id}`}>
               <div className='d-flex align-items-center flex-column img-content'>
                 {movie.poster_path === null ?
                   <img src="/download2.png" className='rounded-2 w-75 m-2 movieCont poster-img ' alt='NO POSTER FOUND' /> :
