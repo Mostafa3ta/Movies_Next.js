@@ -117,26 +117,26 @@ function Search() {
                         <div className='d-flex justify-content-center align-items-center'>
                             <div className='mt-5 mb-2'>
 
-                                {Results.page === Results.total_pages ? <button className='btn me-3 rounded-3 btn-danger' type='button' disabled><i className="fa-solid fa-angles-left"></i></button>
+                                {Results.page === Results.total_pages ? <button className='btn-sm btn me-3 rounded-3 btn-danger' type='button' disabled><i className="fa-solid fa-angles-left"></i></button>
                                     : <>
                                         <Link href={`/Search/${Results.page + 1}`}>
-                                            <button className=' btn me-3  rounded-3 btn-danger'><i className="fa-solid fa-angles-left"></i></button>
+                                            <button className='btn-sm  btn me-3  rounded-3 btn-danger'><i className="fa-solid fa-angles-left"></i></button>
                                         </Link>
                                         <Link href={`/Search/${Results.page + 1}/`}>
-                                            <button className='btn  btn-danger mx-1'> {Results.page + 1} </button>
+                                            <button className='btn-sm btn  btn-danger mx-1'> {Results.page + 1} </button>
                                         </Link>
                                     </>}
-                                <button className='btn fs-4 btn-danger mx-1'>  {Results.page} </button>
+                                <button className='btn-sm btn fs-4 btn-danger mx-1'>  {Results.page} </button>
                                 {Results.page !== 1 ?
                                     <Link href={`/Search/${Results.page - 1}`}>
-                                        <button className='btn  btn-danger mx-1'> {Results.page - 1} </button>
+                                        <button className='btn-sm btn  btn-danger mx-1'> {Results.page - 1} </button>
                                     </Link>
                                     : null}
                                 {Results.page === 1 ?
-                                    <button className='btn ms-3 rounded-3 btn-danger' type='button' disabled><i className="fa-solid fa-angles-right"></i></button>
+                                    <button className='btn-sm btn ms-3 rounded-3 btn-danger' type='button' disabled><i className="fa-solid fa-angles-right"></i></button>
                                     :
                                     <Link href={`/Search/${Results.page - 1}`}>
-                                        <button className='btn ms-3 rounded-3 btn-danger'><i className="fa-solid fa-angles-right"></i></button>
+                                        <button className='btn-sm btn ms-3 rounded-3 btn-danger'><i className="fa-solid fa-angles-right"></i></button>
                                     </Link>
                                 }
                             </div>

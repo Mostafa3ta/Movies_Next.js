@@ -1,6 +1,4 @@
 /* eslint-disable react/jsx-key */
-import Image from 'next/image'
-// import styles from './page.module.css'
 import Link from 'next/link'
 
 export const metadata = {
@@ -59,7 +57,7 @@ export default async function Home() {
           )}
           <div className='d-flex  justify-content-center col-lg-3 col-md-4 col-6  m-1 px-2 align-items-center'>
             <Link href={`/TvShows/Trending/${TvShows.page}`}>
-              <button className=' btn rounded-3 btn-warning'>View More Shows <i className="fa-solid fa-angles-right"></i></button>
+              <button className='btn-sm  btn rounded-3 btn-warning'>View More Shows <i className="fa-solid fa-angles-right"></i></button>
             </Link>
           </div>
         </div >
@@ -88,7 +86,7 @@ export default async function Home() {
         )}
         <div className='d-flex mt-5 mb-3 justify-content-center align-items-center'>
           <Link href={`/Movies/Trending/${movies.page}`}>
-            <button className=' btn rounded-3 btn-danger'>View More Movies <i className="fa-solid fa-angles-right"></i></button>
+            <button className='btn-sm  btn rounded-3 btn-danger'>View More Movies <i className="fa-solid fa-angles-right"></i></button>
           </Link>
         </div>
       </div>

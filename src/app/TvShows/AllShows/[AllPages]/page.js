@@ -52,24 +52,24 @@ export default async function AllMoviePages({ params }) {
                     <div className='mt-5 mb-2'>
                         {TvShows.page === TvShows.total_pages ? null :
                             <Link href={`/TvShows/AllShows/${TvShows.page + 1}`}>
-                                <button className=' btn me-3 rounded-3 btn-warning'><i className="fa-solid fa-angles-left"></i></button>
+                                <button className='btn-sm  btn me-3 rounded-3 btn-warning'><i className="fa-solid fa-angles-left"></i></button>
                             </Link>
                         }
                         <Link href={`/TvShows/AllShows/${TvShows.page + 1}`}>
-                            <button className='btn  btn-warning mx-1'> {TvShows.page + 1} </button>
+                            <button className='btn-sm btn  btn-warning mx-1'> {TvShows.page + 1} </button>
                         </Link>
-                        <button className='btn fs-4 btn-warning mx-1'>  {TvShows.page} </button>
+                        <button className='btn-sm btn fs-4 btn-warning mx-1'>  {TvShows.page} </button>
                         {TvShows.page !== 1 ?
                             <Link href={`/TvShows/AllShows/${TvShows.page - 1}`}>
-                                <button className='btn  btn-warning mx-1'> {TvShows.page - 1} </button>
+                                <button className='btn-sm btn  btn-warning mx-1'> {TvShows.page - 1} </button>
                             </Link>
                             : null}
                         {TvShows.page === 1 ?
-                            <button className='btn ms-3 rounded-3 btn-warning' type='button' disabled><i className="fa-solid fa-angles-right"></i></button>
+                            <button className='btn-sm btn ms-3 rounded-3 btn-warning' type='button' disabled><i className="fa-solid fa-angles-right"></i></button>
                             : <>
 
                                 <Link href={`/TvShows/AllShows/${TvShows.page - 1}`}>
-                                    <button className='btn ms-3 rounded-3 btn-warning'><i className="fa-solid fa-angles-right"></i></button>
+                                    <button className='btn-sm btn ms-3 rounded-3 btn-warning'><i className="fa-solid fa-angles-right"></i></button>
                                 </Link>
                             </>
 

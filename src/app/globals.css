@@ -12,6 +12,7 @@ body {
   background: rgb(2, 0, 36);
   background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 100, 1) 100%, rgba(0, 212, 255, 1) 100%);
   overflow-x: hidden;
+  margin-bottom: 3.5rem;
 }
 
 
@@ -126,9 +127,6 @@ main {
   margin-right: 0;
 }
 
-.navSide {
-  margin-left: 20px;
-}
 
 .list-items:hover {
   color: rgb(192, 137, 244);
@@ -136,9 +134,10 @@ main {
 
 .side-item {
   margin: .3rem 0rem;
-  
+
 }
-.side-item:hover span{
+
+.side-item:hover span {
   color: rgb(192, 137, 244);
 }
 
@@ -159,8 +158,6 @@ main {
   align-items: center;
   cursor: pointer;
 }
-
-
 
 .play-ico {
   position: absolute;
@@ -224,9 +221,8 @@ main {
 }
 
 .nav2 {
-
   background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 100, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(135deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 100, 1) 100%, rgba(0, 212, 255, 1) 100%);
 }
 
 .sideBar {
@@ -238,8 +234,8 @@ main {
   bottom: 0px;
   font-weight: lighter;
   background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 100, 1) 100%, rgba(0, 212, 255, 1) 100%);
-  z-index: 99999;
+  background: linear-gradient(135deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 100, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  z-index: 8888;
 }
 
 .media-side {
@@ -254,8 +250,6 @@ main {
 .media-side i:hover {
   color: rgb(192, 137, 244);
 }
-
-
 
 ::-webkit-scrollbar {
   width: 7px;
@@ -297,6 +291,12 @@ main {
 
 .recom-contain::-webkit-scrollbar:vertical {
   display: none;
+}
+
+footer {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 100, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  z-index: 99999;
 }
 
 @media screen and (min-width:950px) {
@@ -368,4 +368,5 @@ main {
     overflow: auto;
     text-align: center;
   }
+
 }

@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        
+
         <nav className="navbar nav2 navbar-dark fixed-top">
           <div className="container-fluid ">
             <div className='d-flex justify-content-center'>
@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
                   </li>
                 </ul>
                 <hr className='text-white w-75 ' />
-                
+
                 <h5 className='text-white  justify-content-start'> <i className="fa-solid fa-tv text-warning ms-0 fs-5 px-2 "></i>Tv Shows</h5>
                 <ul className="navbar-nav justify-content-end flex-grow-1  px-5 py-1 ">
                   <li className="nav-item py-2 ">
@@ -188,26 +188,25 @@ export default function RootLayout({ children }) {
           </div>
         </div>
 
+
+        <footer className=" py-1 fixed-bottom text-white">
+          <section className='col-sm-10 content-margain ms-auto text-center'>
+            <Link className="mx-1" href="https://www.facebook.com/profile.php?id=100007766405910&ref=xav_ig_profile_web" target='_blank' role="button">
+              <i className="fab fs-3 m-2 fa-facebook"></i></Link>
+
+            <Link className=" mx-1" href="https://github.com/Mostafa3ta" target='_blank' role="button">
+              <i className="fab fs-3 m-2 fa-github"></i></Link>
+
+            <Link className="mx-1" href="https://www.linkedin.com/in/mostafa-mahmoud-33a1542b0" target='_blank' role="button">
+              <i className="fab fs-3 m-2 fa-linkedin"></i></Link>
+          </section>
+        </footer>
+
         <div className=' col-sm-10 content-margain ms-auto'>
           {children}
         </div>
-        <hr className='text-white w-100 text-center nav-1-hr mt-2 mb-0' />
 
-        <footer className=" col-sm-10 content-margain ms-auto media-side text-center text-white">
-          <div className="container  pb-0">
-            <section>
-              <Link className="m-1" href="https://www.facebook.com/profile.php?id=100007766405910&ref=xav_ig_profile_web" target='_blank' role="button">
-                <i className="fab fs-4 m-2 fa-facebook-f"></i></Link>
 
-              <Link className="m-1" href="https://www.linkedin.com/in/mostafa-mahmoud-33a1542b0" target='_blank' role="button">
-                <i className="fab fs-4 m-2 fa-instagram"></i></Link>
-
-              <Link className=" m-1" href="https://github.com/Mostafa3ta" target='_blank' role="button">
-                <i className="fab fs-4 m-2 fa-github"></i></Link>
-            </section>
-          </div>
-        </footer>
-        
         <Script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></Script>
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></Script>
       </body>
