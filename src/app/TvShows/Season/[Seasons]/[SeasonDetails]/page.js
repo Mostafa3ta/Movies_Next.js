@@ -59,31 +59,31 @@ async function SeasonDetails({ params }) {
                     <h2 className='title fw-bolder text-center text-warning py-2 mb-1'> {ShowName.name} </h2>
                     <hr className='text-white details-hr ' />
 
-                    <div className='px-1'><h5> <i className="fa-solid fa-tv text-warning fs-5 me-1"></i> Tv Series</h5> </div>
+                    <div className='px-1'><h5> <i className="fa-solid fa-tv text-warning  me-1"></i> Tv Series</h5> </div>
                     <hr className='text-white details-hr ' />
 
                     <h5 className='title fw-bolder px-1 text-warning py-2'> {ShowDetails.name} </h5>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Rate :</span>
-                        {ShowDetails.vote_average === 0 ? <span className='fs-5'> Not Rated</span> : <>
-                            <span className='fs-5 '> imdb  {ShowDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i>
+                    <div><span className='text-warning  px-1'>Rate :</span>
+                        {ShowDetails.vote_average === 0 ? <span className=''> Not Rated</span> : <>
+                            <span className=' '> imdb  {ShowDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i>
                         </>}
                     </div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Episodes :</span>
+                    <div><span className='text-warning  px-1'>Episodes :</span>
                         {ShowDetails.episodes.length === 0 ?
-                            <span className='fst-italic fs-5 px-2'>Not Puplished Yet</span>
+                            <span className='fst-italic  px-2'>Not Puplished Yet</span>
                             :
-                            <span className='fs-5 px-2'>{ShowDetails.episodes.length}</span>
+                            <span className=' px-2'>{ShowDetails.episodes.length}</span>
                         }
                     </div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Air Date :</span>
-                        {ShowDetails.air_date === null ? <span className='fst-italic fs-5 px-2'>Unknown</span> :
-                            <span className='fs-5 px-2'>{ShowDetails.air_date}</span>
+                    <div><span className='text-warning  px-1'>Air Date :</span>
+                        {ShowDetails.air_date === null ? <span className='fst-italic  px-2'>Unknown</span> :
+                            <span className=' px-2'>{ShowDetails.air_date}</span>
                         }
                     </div>
 
@@ -193,7 +193,7 @@ async function SeasonDetails({ params }) {
                                             :
                                             <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
                                         }
-                                        <span className='text-warning fs-5 fw-bolder' >{`>`} {show.name} {`<`}</span>
+                                        <span className='text-warning py-2 fw-bolder' > {show.name} </span>
                                     </> : <>
                                         {show.poster_path === null ?
                                             <img src="/download3.jpg" className='w-100 m-2 rounded-2' />

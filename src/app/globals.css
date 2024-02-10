@@ -134,6 +134,14 @@ main {
   color: rgb(192, 137, 244);
 }
 
+.side-item {
+  margin: .3rem 0rem;
+  
+}
+.side-item:hover span{
+  color: rgb(192, 137, 244);
+}
+
 .img-content .play-ico {
   transition: transform 1s, opacity 1s;
   opacity: 0;
@@ -215,11 +223,6 @@ main {
   color: #ffffff9c;
 }
 
-.nav3 {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 100, 1) 100%, rgba(0, 212, 255, 1) 100%);
-}
-
 .nav2 {
 
   background: rgb(2, 0, 36);
@@ -243,10 +246,12 @@ main {
   bottom: 0;
   padding: 10px 0px;
 }
-.media-side i{
+
+.media-side i {
   transition: all .4s ease;
 }
-.media-side i:hover{
+
+.media-side i:hover {
   color: rgb(192, 137, 244);
 }
 

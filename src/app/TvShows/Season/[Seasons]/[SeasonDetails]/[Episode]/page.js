@@ -55,60 +55,60 @@ async function EpisodeDetails({ params }) {
 
         <div className='container text-white  '>
             <div className='row  my-2 text-center '>
-                <div className='col-lg-5 px-3 col-md-12 my-4 ' >
+                <div className='col-lg-6 px-3 col-md-12 my-4 ' >
                     <h3 className='title fw-bolder text-center text-warning px-2 mt-2 mb-1'> {EpisodeDetails.name} </h3>
                     {EpisodeDetails.still_path === null ?
-                        <img src="/download4.jpg" className='w-100 m-2 mt-5 rounded-2' />
+                        <img alt='poster' src="/download4.jpg" className='w-100 m-2 mt-5 rounded-2' />
                         :
-                        <img src={baseURL + EpisodeDetails.still_path} className='w-100  mt-5 rounded-2' />
+                        <img alt='poster' src={baseURL + EpisodeDetails.still_path} className='w-100  mt-5 rounded-2' />
                     }
                 </div>
-                <div className='py-2 mt-5 col-lg-6 col-md-12  movie-Content'>
-                    <div className='px-3'><h5> <i className="fa-solid fa-tv text-warning fs-5 me-1"></i> Tv Series</h5> </div>
+                <div className='py-2 mt-5 col-lg-5 col-md-12  movie-Content'>
+                    <div className='px-3'><h5> <i className="fa-solid fa-tv text-warning  me-1"></i> Tv Series</h5> </div>
                     <hr className='text-white details-hr ' />
 
                     <div className='d-flex px-3 flex-nowrap'>
-                        <span className='text-warning fs-5 px-1'>Tv Show :</span>
-                        <h5 className='title fw-bolder  px-2 mt-1 '> {ShowDetails.name}</h5>
+                        <span className='text-warning  px-1'>Tv Show :</span>
+                        <h5 className='title   px-2  '> {ShowDetails.name}</h5>
                     </div>
                     <hr className='text-white details-hr ' />
 
                     <h5 className='title fw-bolder px-3 text-warning py-2 mb-1'> {SeasonDetails.name} </h5>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning px-3 fs-5 '>Episode Number:</span>
-                        <span className='fs-5 '>{EpisodeDetails.episode_number}</span>
+                    <div><span className='text-warning px-3  '>Episode Number :</span>
+                        <span className=' '>{EpisodeDetails.episode_number}</span>
                     </div>
                     <hr className='text-white details-hr ' />
 
 
-                    <div><span className='text-warning fs-5 px-3'>Rate :</span>
-                        {SeasonDetails.vote_average === 0 ? <span className='fs-5'> Not Rated</span> : <>
-                            <span className='fs-5 '> imdb  {SeasonDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i>
+                    <div><span className='text-warning  px-3'>Rate :</span>
+                        {SeasonDetails.vote_average === 0 ? <span className=''> Not Rated</span> : <>
+                            <span className=' '> imdb  {SeasonDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i>
                         </>}
                     </div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning px-3 fs-5 px-1'>RunTime :</span>
-                        {EpisodeDetails.runtime === 0 || EpisodeDetails.runtime === null ? <span className='fst-italic fs-5'>Unknown</span> : <>
-                            <span className='fs-5 '>{EpisodeDetails.runtime}</span>
+                    <div><span className='text-warning px-3  px-1'>RunTime :</span>
+                        {EpisodeDetails.runtime === 0 || EpisodeDetails.runtime === null ? <span className='fst-italic '>Unknown</span> : <>
+                            <span className=' '>{EpisodeDetails.runtime}</span>
                             <span className='text-danger'> mins </span>
                         </>}
                     </div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning px-3 fs-5 px-1'>Air Date :</span>
+                    <div><span className='text-warning px-3  px-1'>Air Date :</span>
                         {EpisodeDetails.air_date === "" ? <span className='fst-italic'>Unknown</span> :
-                            <span className='fs-5 '>{EpisodeDetails.air_date}</span>
+                            <span className=' '>{EpisodeDetails.air_date}</span>
                         }
                     </div>
                     <hr className='text-white details-hr ' />
                 </div>
             </div>
 
-            <div className='container mt-2 mb-5 ms-2 col-lg-5 col-md-12  text-white  '>
+            <div className='container mt-2 mb-5 ms-2 col-lg-6 col-md-12  text-white  '>
                 <div className='text-center'>
-                    <span className='text-warning fs-5 px-1'>Story :</span> {EpisodeDetails.overview}
+                    <span className='text-warning  px-1'>Story :</span> {EpisodeDetails.overview}
                 </div>
             </div>
             <hr className='text-white details-hr' />
@@ -127,14 +127,14 @@ async function EpisodeDetails({ params }) {
                                     <div className='d-flex align-items-center flex-column img-content'>
                                         {episode.episode_number === EpisodeDetails.episode_number ? <>
                                             {episode.still_path === null ?
-                                                <img src="/download4.jpg" className='w-100 m-2 rounded-2' />
+                                                <img alt='poster' src="/download4.jpg" className='w-100 m-2 rounded-2' />
                                                 :
-                                                <img src={baseURL + episode.still_path} className='w-100 m-2 rounded-2' />}
-                                            <span className='text-warning fs-6 fw-bolder' >{`>`} Episode  {episode.episode_number} {`<`}</span>
+                                                <img alt='poster' src={baseURL + episode.still_path} className='w-100 m-2 rounded-2' />}
+                                            <span className='text-warning fs-6 fw-bolder' > Episode  {episode.episode_number} </span>
                                         </> : <>{episode.still_path === null ?
-                                            <img src="/download4.jpg" className='w-75 m-2 rounded-2' />
+                                            <img alt='poster' src="/download4.jpg" className='w-75 m-2 rounded-2' />
                                             :
-                                            <img src={baseURL + episode.still_path} className='w-75 m-2 rounded-2' />}
+                                            <img alt='poster' src={baseURL + episode.still_path} className='w-75 m-2 rounded-2' />}
                                             <span >Episode  {episode.episode_number}</span>
                                         </>
                                         }
@@ -153,16 +153,16 @@ async function EpisodeDetails({ params }) {
                                 <div className='d-flex align-items-center flex-column img-content'>
                                     {episode.episode_number === EpisodeDetails.episode_number ? <>
                                         {episode.still_path === null ?
-                                            <img src="/download4.jpg" className='w-100 m-2 rounded-2' />
+                                            <img alt='poster' src="/download4.jpg" className='w-100 m-2 rounded-2' />
                                             :
-                                            <img src={baseURL + episode.still_path} className='w-100 m-2 rounded-2' />
+                                            <img alt='poster' src={baseURL + episode.still_path} className='w-100 m-2 rounded-2' />
                                         }
-                                        <span className='text-warning fs-6 fw-bolder' >{`>`} Episode  {episode.episode_number} {`<`}</span>
+                                        <span className='text-warning fs-6 fw-bolder' > Episode  {episode.episode_number} </span>
                                     </> : <>
                                         {episode.still_path === null ?
-                                            <img src="/download4.jpg" className='w-75 m-2 rounded-2' />
+                                            <img alt='poster' src="/download4.jpg" className='w-75 m-2 rounded-2' />
                                             :
-                                            <img src={baseURL + episode.still_path} className='w-75 m-2 rounded-2' />
+                                            <img alt='poster' src={baseURL + episode.still_path} className='w-75 m-2 rounded-2' />
                                         }
                                         <span >Episode  {episode.episode_number}</span>
                                     </>
@@ -186,8 +186,8 @@ async function EpisodeDetails({ params }) {
                             {Cast.guest_stars.map((actor) =>
                                 <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
                                     {actor.profile_path === null ?
-                                        <img src="/download3.jpg" className=' w-50 rounded-5' /> :
-                                        <img src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
+                                        <img alt='poster' src="/download3.jpg" className=' w-50 rounded-5' /> :
+                                        <img alt='poster' src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
                                     <span>{actor.name}</span>
                                     <span className='text-warning text-center'>{actor.character}</span>
                                 </div>
@@ -196,8 +196,8 @@ async function EpisodeDetails({ params }) {
                                 {Cast.crew.map((actor) =>
                                     <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
                                         {actor.profile_path === null ?
-                                            <img src="/download3.jpg" className=' w-50 rounded-5' /> :
-                                            <img src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
+                                            <img alt='poster' src="/download3.jpg" className=' w-50 rounded-5' /> :
+                                            <img alt='poster' src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
                                         <span>{actor.name}</span>
                                         <span className='text-warning'>{actor.job}</span>
                                     </div>
@@ -222,16 +222,16 @@ async function EpisodeDetails({ params }) {
                             <div className='d-flex align-items-center flex-column img-content'>
                                 {show.name === SeasonDetails.name ?
                                     <>{show.poster_path === null ?
-                                        <img src="/download3.jpg" className='w-100 m-2 rounded-2' />
+                                        <img alt='poster' src="/download3.jpg" className='w-100 m-2 rounded-2' />
                                         :
-                                        <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
+                                        <img alt='poster' src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
                                     }
-                                        <span className='text-warning fs-5 fw-bolder' >{`>`} {show.name} {`<`}</span>
+                                        <span className='text-warning py-2 fw-bolder' > {show.name} </span>
                                     </>
                                     : <>{show.poster_path === null ?
-                                        <img src="/download3.jpg" className='w-100 m-2 rounded-2' />
+                                        <img alt='poster' src="/download3.jpg" className='w-100 m-2 rounded-2' />
                                         :
-                                        <img src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
+                                        <img alt='poster' src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
                                     }
                                         <div className='d-flex '>
                                             <span className=' py-2'>{show.name}</span>

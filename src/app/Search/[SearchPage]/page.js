@@ -13,7 +13,7 @@ function Search() {
     const [Results, setResults] = useState([])
     const [timer, setTimer] = useState(null);
 
-    const baseURL = 'https://image.tmdb.org/t/p/w500';
+    const imgBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
     const options = {
         method: 'GET',
@@ -85,7 +85,7 @@ function Search() {
                                                 {result.poster_path === null ?
                                                     <img src="/download3.jpg" className='w-75 m-2 rounded-2' />
                                                     :
-                                                    <img src={baseURL + result.poster_path} className='rounded-2 w-75 m-2 movieCont ' />
+                                                    <img src={imgBaseUrl + result.poster_path} className='rounded-2 w-75 m-2 movieCont ' />
                                                 }
                                                 <i className="fa-regular fa-circle-play play-ico mt-5 py-5"></i>
                                                 <span > <i className="fa-solid fa-film text-danger px-1 fs-5 "></i> {result.title}</span>
@@ -97,7 +97,7 @@ function Search() {
                                                 {result.poster_path === null ?
                                                     <img src="/download3.jpg" className='w-75 m-2 rounded-2' />
                                                     :
-                                                    <img src={baseURL + result.poster_path} className='rounded-2 w-75 m-2 movieCont ' />
+                                                    <img src={imgBaseUrl + result.poster_path} className='rounded-2 w-75 m-2 movieCont ' />
                                                 }
                                                 <i className="fa-regular fa-circle-play play-ico mt-5 py-5"></i>
                                                 <span> <i className="fa-solid fa-tv text-warning px-2 fs-5"></i>{result.name}</span>
@@ -108,7 +108,7 @@ function Search() {
                                     {result.profile_path === null ?
                                         <img src="/download3.jpg" className='w-75 m-2 rounded-2' />
                                         :
-                                        <img src={baseURL + result.profile_path} className='rounded-2 w-75 m-2 movieCont ' />
+                                        <img src={imgBaseUrl + result.profile_path} className='rounded-2 w-75 m-2 movieCont ' />
                                     }
                                     <span> <i className="fa-solid fa-masks-theater text-warning px-2 fs-5"></i>{result.name}</span>
                                 </div>}

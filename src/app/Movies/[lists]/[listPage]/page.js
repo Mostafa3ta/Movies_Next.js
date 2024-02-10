@@ -11,7 +11,7 @@ async function movieListNum({ params }) {
     const listType = params.lists
     const pageNum = params.listPage
 
-    const baseURL = 'https://image.tmdb.org/t/p/w500';
+    const imgBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
     const options = {
         method: 'GET',
@@ -63,7 +63,7 @@ async function movieListNum({ params }) {
                                 {movie.poster_path === null ?
                                     <img src="/download3.jpg" className='w-75 m-2 rounded-2' />
                                     :
-                                    <img src={baseURL + movie.poster_path} className='w-75 m-2 rounded-2' />
+                                    <img src={imgBaseUrl + movie.poster_path} className='w-75 m-2 rounded-2' />
                                 }
                                 <i className="fa-regular fa-circle-play play-ico mt-5 py-5"></i>
                                 <span className='title'> {movie.title}</span>

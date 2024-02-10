@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function Home() {
 
-  const baseURL = 'https://image.tmdb.org/t/p/w500';
+  const imgBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
   const options = {
     method: 'GET',
@@ -49,8 +49,8 @@ export default async function Home() {
               <Link href={`/TvShows/AllShows/ShowDetails/${show.id}`}>
                 <div className='d-flex align-items-center flex-column img-content'>
                   {show.poster_path === null ?
-                    <img src="/download2.png" className='rounded-2 w-100 m-2 movieCont poster-img ' alt='NO POSTER FOUND' /> :
-                    <img src={baseURL + show.poster_path} className='rounded-2 w-100 m-2 movieCont ' alt='NO POSTER FOUND' />
+                    <img alt='poster' src="/download2.png" className='rounded-2 w-100 m-2 movieCont poster-img ' /> :
+                    <img alt='poster' src={imgBaseUrl + show.poster_path} className='rounded-2 w-100 m-2 movieCont ' />
                   }
                   <span>{show.name}</span>
                 </div>
@@ -77,8 +77,8 @@ export default async function Home() {
             <Link href={`/Movies/AllMovies/MovieDetails/${movie.id}`}>
               <div className='d-flex align-items-center flex-column img-content'>
                 {movie.poster_path === null ?
-                  <img src="/download2.png" className='rounded-2 w-75 m-2 movieCont poster-img ' alt='NO POSTER FOUND' /> :
-                  <img src={baseURL + movie.poster_path} className='rounded-2 w-75 m-2 movieCont ' alt='NO POSTER FOUND' />
+                  <img alt='poster' src="/download2.png" className='rounded-2 w-75 m-2 movieCont poster-img ' /> :
+                  <img alt='poster' src={imgBaseUrl + movie.poster_path} className='rounded-2 w-75 m-2 movieCont ' />
                 }
                 <i className="fa-regular fa-circle-play play-ico mt-5 py-5"></i>
                 <span className='title' > {movie.title}</span>

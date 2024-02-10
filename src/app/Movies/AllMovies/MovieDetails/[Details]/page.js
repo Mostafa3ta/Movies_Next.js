@@ -10,7 +10,7 @@ export const metadata = {
 async function MovieDetails({ params }) {
     const MovieID = params.Details
 
-    const baseURL = 'https://image.tmdb.org/t/p/w500';
+    const imgBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
     const options = {
         method: 'GET',
@@ -26,7 +26,6 @@ async function MovieDetails({ params }) {
         }
     })
     const movieDetails = await response.json()
-    const movieRate = movieDetails.vote_average
 
     const response1 = await fetch(`https://api.themoviedb.org/3/movie/${MovieID}/credits`, options, {
         next: {
@@ -58,7 +57,7 @@ async function MovieDetails({ params }) {
                     {movieDetails.poster_path === null ?
                         <img src="/download3.jpg" className='w-75 m-2 mt-5 rounded-2' />
                         :
-                        <img src={baseURL + movieDetails.poster_path} className='w-75 m-2 mt-5 rounded-2' />
+                        <img src={imgBaseUrl + movieDetails.poster_path} className='w-75 m-2 mt-5 rounded-2' />
                     }
 
                 </div>
@@ -69,31 +68,31 @@ async function MovieDetails({ params }) {
                     <div className='px-1'><h4> <i className="fa-solid fa-film text-danger fs-4 me-1"></i> Movie</h4> </div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Geners :</span> {movieDetails.genres?.map((gener) => <span className='px-2 fs-5'>
+                    <div><span className='text-warning px-1'>Geners :</span> {movieDetails.genres?.map((gener) => <span className='px-2'>
                         {gener.name}</span>)}</div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Rate :</span> imdb  {movieDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
+                    <div><span className='text-warning px-1'>Rate :</span> imdb  {movieDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Status :</span> {movieDetails.status}</div>
+                    <div><span className='text-warning px-1'>Status :</span> {movieDetails.status}</div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Language :</span> {movieDetails.spoken_languages.map((lang) => <span className='px-1'> {lang.name}</span>)}
+                    <div><span className='text-warning px-1'>Language :</span> {movieDetails.spoken_languages.map((lang) => <span className='px-1'> {lang.name}</span>)}
                         <span className='px-1'> {movieDetails.original_language}</span></div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Country :</span> {movieDetails.production_countries.map((country) => <span className='px-1'> {country.name}</span>)}</div>
+                    <div><span className='text-warning px-1'>Country :</span> {movieDetails.production_countries.map((country) => <span className='px-1'> {country.name}</span>)}</div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>Release :</span>
+                    <div><span className='text-warning px-1'>Release :</span>
                         {movieDetails.release_date === "" ? <span>TBD</span> :
                             <span>{movieDetails.release_date}</span>
                         }
                     </div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning fs-5 px-1'>RunTime :</span>
+                    <div><span className='text-warning px-1'>RunTime :</span>
                         {movieDetails.runtime === 0 ? <span>Unknown</span> : <>
                             <span>{movieDetails.runtime}</span>
                             <span className='text-danger'> mins </span>
@@ -105,7 +104,7 @@ async function MovieDetails({ params }) {
             </div>
             <div className='container mt-2 mb-5 ms-2 col-lg-5 col-md-12  text-white  '>
                 <div className='text-center'>
-                    <span className='text-warning fs-5 px-1'>Story :</span>
+                    <span className='text-warning px-1'>Story :</span>
                     {movieDetails.overview}
                 </div>
             </div>
@@ -124,7 +123,7 @@ async function MovieDetails({ params }) {
                                     <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
                                         {actor.profile_path === null ?
                                             <img src="/download3.jpg" className=' w-50 rounded-5' /> :
-                                            <img src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
+                                            <img src={imgBaseUrl + actor.profile_path} className='w-50  rounded-5' />}
                                         <span>{actor.name}</span>
                                         <span className='text-warning text-center '>{actor.job}</span>
                                     </div>
@@ -134,7 +133,7 @@ async function MovieDetails({ params }) {
                                         <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
                                             {actor.profile_path === null ?
                                                 <img src="/download3.jpg" className=' w-50 rounded-5' /> :
-                                                <img src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
+                                                <img src={imgBaseUrl + actor.profile_path} className='w-50  rounded-5' />}
                                             <span>{actor.name}</span>
                                             <span className='text-warning text-center'>{actor.character}</span>
                                         </div>
@@ -163,7 +162,7 @@ async function MovieDetails({ params }) {
                                             <div className='d-flex align-items-center flex-column img-content'>
                                                 {movie.poster_path === null ?
                                                     <img src="/download3.jpg" className='rounded-2 w-100 m-2 movieCont ' alt='NO POSTER FOUND' /> :
-                                                    <img src={baseURL + movie.poster_path} className='rounded-2 w-100 m-2 movieCont ' alt='NO POSTER FOUND' />
+                                                    <img src={imgBaseUrl + movie.poster_path} className='rounded-2 w-100 m-2 movieCont ' alt='NO POSTER FOUND' />
                                                 }
                                                 <span className='' > {movie.title}</span>
                                             </div>
@@ -177,7 +176,7 @@ async function MovieDetails({ params }) {
                                                 <div className='d-flex align-items-center flex-column img-content'>
                                                     {movie.poster_path === null ?
                                                         <img src="/download3.jpg" className='rounded-2 w-100 m-2 movieCont ' alt='NO POSTER FOUND' /> :
-                                                        <img src={baseURL + movie.poster_path} className='rounded-2 w-100 m-2 movieCont ' alt='NO POSTER FOUND' />
+                                                        <img src={imgBaseUrl + movie.poster_path} className='rounded-2 w-100 m-2 movieCont ' alt='NO POSTER FOUND' />
                                                     }
                                                     <span className='' > {movie.title}</span>
                                                 </div>
