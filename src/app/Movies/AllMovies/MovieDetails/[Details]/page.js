@@ -68,8 +68,8 @@ async function MovieDetails({ params }) {
                     <div className='px-1'><h4> <i className="fa-solid fa-film text-danger fs-4 me-1"></i> Movie</h4> </div>
                     <hr className='text-white details-hr ' />
 
-                    <div><span className='text-warning px-1'>Geners :</span> {movieDetails.genres?.map((gener) => <span className='px-2'>
-                        {gener.name}</span>)}</div>
+                    <div><span className='text-warning px-1'>Geners :</span> <span className='d-flex flex-wrap'> {movieDetails.genres?.map((gener) => <span className='px-1'>
+                        {gener.name}</span>)} </span></div>
                     <hr className='text-white details-hr ' />
 
                     <div><span className='text-warning px-1'>Rate :</span> imdb  {movieDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i></div>
@@ -110,11 +110,11 @@ async function MovieDetails({ params }) {
             </div>
             <hr className='text-white details-hr ' />
 
-            {Cast.cast.length === 0 && Cast.crew.length === 0 ? <div className='container  my-3 row d-flex justify-content-center text-white'>
+            {Cast.cast.length === 0 && Cast.crew.length === 0 ? <div className='  my-3 row d-flex justify-content-center text-white'>
                 <hr className='text-white  w-75 text-center mt-3 ' />
                 <h3 className='py-4 text-center fst-italic'>No Cast To Show</h3>
             </div> : <>
-                <div className='container my-3 row d-flex justify-content-center text-white'>
+                <div className=' my-3 row d-flex justify-content-center text-white'>
                     <h2 className='py-4 text-center'>Cast</h2>
                     <div className='col-lg-8 col-10 cast-contain rounded-4 '>
                         <div className='row d-flex '>
@@ -143,17 +143,13 @@ async function MovieDetails({ params }) {
                     </div>
                 </div>
             </>}
+            <hr className='text-white text-center mt-5 ' />
 
 
-
-            {Simi.results.length === 0 && Recommend.results.length === 0 ? <div className='container  my-3 row d-flex justify-content-center text-white'>
-                <hr className='text-white  w-75 text-center mt-3 ' />
-                <h3 className='py-4 text-center fst-italic'>No Recommended Movies</h3>
-            </div>
+            {Simi.results.length === 0 && Recommend.results.length === 0 ? null
                 : <>
-                    <div className='container  my-3  row d-flex justify-content-center text-white'>
-                        <hr className='text-white  w-75 text-center mt-3 ' />
-                        <h2 className='py-4 text-center'>Recommended Movies</h2>
+                    <h2 className='py-4 text-center'>Recommended</h2>
+                    <div className='container  my-3 row d-flex justify-content-center text-white'>
                         <div className='row col-lg-8 col-10  text-center my-2 recom-contain'>
                             {Simi.results.length === 0 ? <>
                                 {Recommend.results.map((movie) =>

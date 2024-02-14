@@ -146,9 +146,9 @@ async function SeasonDetails({ params }) {
             </>}
 
             {Cast.cast.length === 0 && Cast.crew.length === 0 ? null : <>
-                <div className='container my-3 row d-flex justify-content-center text-center text-white'>
+                <div className=' my-3 row d-flex justify-content-center text-center text-white'>
                     <hr className='text-white  w-75 text-center mt-3 ' />
-                    <h2 className='py-4 text-center'>Cast  &  Crew</h2>
+                    <h2 className='py-4 text-center'>Cast & Crew</h2>
                     <div className='col-lg-8 col-10 cast-contain rounded-4 '>
                         <div className='row '>
                             {Cast.cast.length === 0 ? <>

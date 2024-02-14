@@ -32,13 +32,13 @@ export default function RootLayout({ children }) {
             <button className="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="offcanvas offcanvas-end nav2" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div className="offcanvas offcanvas-end nav2 mb-4" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
               <div className="offcanvas-header">
                 <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div className="offcanvas-body nav2">
                 <h5 className='  text-white '><i className="fa-solid fa-film text-danger fs-5 px-1"></i> Movies</h5>
-                <ul className="navbar-nav justify-content-end flex-grow-1 px-5 py-2 ">
+                <ul className="navbar-nav justify-content-end flex-grow-1 px-sm-5 py-2 ">
                   <li className="nav-item py-2">
                     <Link href={`/Movies/AllMovies/1`} >
                       <span className='list-items'>All Movies</span>
@@ -72,8 +72,8 @@ export default function RootLayout({ children }) {
                 </ul>
                 <hr className='text-white w-75 ' />
 
-                <h5 className='text-white  justify-content-start'> <i className="fa-solid fa-tv text-warning ms-0 fs-5 px-2 "></i>Tv Shows</h5>
-                <ul className="navbar-nav justify-content-end flex-grow-1  px-5 py-1 ">
+                <h5 className='text-white  justify-content-start'> <i className="fa-solid fa-tv text-warning fs-5 px-1 "></i>Tv Shows</h5>
+                <ul className="navbar-nav justify-content-end flex-grow-1  px-sm-5 py-1 ">
                   <li className="nav-item py-2 ">
                     <Link href={`/TvShows/AllShows/1`} >
                       <span className='list-items'>All Shows</span>

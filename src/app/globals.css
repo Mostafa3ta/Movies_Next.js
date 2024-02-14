@@ -4,8 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
 
-:root {}
-
 body {
   margin: 0;
   font-family: 'Lora', serif !important;
@@ -14,7 +12,6 @@ body {
   overflow-x: hidden;
   margin-bottom: 3.5rem;
 }
-
 
 a,
 a:hover {
@@ -195,15 +192,6 @@ main {
   position: relative;
 }
 
-.poster-img:before {
-  content: "asas";
-  height: 25px;
-  width: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, .3);
-}
 
 .search-input:focus {
   background-color: inherit !important;
@@ -255,19 +243,16 @@ main {
   width: 7px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: none;
   background: inherit;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(184, 24, 173);
   border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(163, 27, 154);
 }
@@ -332,7 +317,6 @@ footer {
     opacity: 1;
   }
 
-
   .nav1 {
     opacity: 0;
     visibility: hidden;
@@ -367,6 +351,21 @@ footer {
     height: 50vh;
     overflow: auto;
     text-align: center;
+  }
+
+}
+
+@media screen and (max-width:350px) {
+  
+  body{
+  margin-bottom: 5rem;
+  }
+  .img-content .play-ico,
+  .img-content:hover .play-ico {
+    opacity: 0;
+  }
+  .logo-ico {
+    width: 90px;
   }
 
 }

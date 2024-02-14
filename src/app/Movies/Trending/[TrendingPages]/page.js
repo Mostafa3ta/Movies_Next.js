@@ -44,7 +44,7 @@ async function TrendingPages({ params }) {
                                     :
                                     <img src={imgBaseUrl + movie.poster_path} className='rounded-2 w-75 m-2 movieCont ' />
                                 }
-                                <i className="fa-regular fa-circle-play play-ico mt-5 py-5"></i>
+                                <i className="fa-regular fa-circle-play play-ico"></i>
                                 <span className='title' > {movie.title}</span>
                             </div>
                         </Link>
