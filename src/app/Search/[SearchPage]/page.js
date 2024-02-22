@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-
+import { PagesButtons } from '../../components'
+import { imgBaseUrl } from '../../utils'
 
 function Search() {
 
@@ -13,7 +14,6 @@ function Search() {
     const [Results, setResults] = useState([])
     const [timer, setTimer] = useState(null);
 
-    const imgBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
     const options = {
         method: 'GET',
@@ -23,7 +23,7 @@ function Search() {
         }
     };
 
-    async function getResults(value, pageNum) {
+    async function searchResults(value, pageNum) {
         const newValue = value.split(' ').join('%20')
         await fetch(`https://api.themoviedb.org/3/search/multi?query=${newValue}&page=${pageNum}`, options, {
             next: {
@@ -35,7 +35,7 @@ function Search() {
     }
 
     useEffect(() => {
-        getResults(localStorage.getItem('searchValue'), pageNum);
+        searchResults(localStorage.getItem('searchValue'), pageNum);
 
     }, [pageNum])
 
@@ -46,7 +46,7 @@ function Search() {
         }
         setTimer(
             setTimeout(() => {
-                getResults(value, 1)
+                searchResults(value, 1)
                 localStorage.setItem('searchValue', value)
             }, 1500)
         );
@@ -74,7 +74,7 @@ function Search() {
                     <i className="fa-solid text-danger fs-4 fa-magnifying-glass"></i>
                 </div>
                 <div className='fs-4 px-3 ms-3 mb-5'>`{localStorage.getItem('searchValue')}`</div>
-                <div className='row  text-center my-2'>
+                <div className='row text-center my-2'>
                     {Results.total_results === 0 ? <h2 className='fst-italic'>No Results Found </h2> : <>
                         {Results.results?.map((result) =>
                             <div className='col-lg-3 col-md-4 col-6  my-2 px-2'>
@@ -114,34 +114,7 @@ function Search() {
                                 </div>}
                             </div>
                         )}
-                        <div className='d-flex justify-content-center align-items-center'>
-                            <div className='mt-5 mb-2'>
-
-                                {Results.page === Results.total_pages ? <button className='btn-sm btn me-3 rounded-3 btn-danger' type='button' disabled><i className="fa-solid fa-angles-left"></i></button>
-                                    : <>
-                                        <Link href={`/Search/${Results.page + 1}`}>
-                                            <button className='btn-sm  btn me-3  rounded-3 btn-danger'><i className="fa-solid fa-angles-left"></i></button>
-                                        </Link>
-                                        <Link href={`/Search/${Results.page + 1}/`}>
-                                            <button className='btn-sm btn  btn-danger mx-1'> {Results.page + 1} </button>
-                                        </Link>
-                                    </>}
-                                <button className='btn-sm btn fs-4 btn-danger mx-1'>  {Results.page} </button>
-                                {Results.page !== 1 ?
-                                    <Link href={`/Search/${Results.page - 1}`}>
-                                        <button className='btn-sm btn  btn-danger mx-1'> {Results.page - 1} </button>
-                                    </Link>
-                                    : null}
-                                {Results.page === 1 ?
-                                    <button className='btn-sm btn ms-3 rounded-3 btn-danger' type='button' disabled><i className="fa-solid fa-angles-right"></i></button>
-                                    :
-                                    <Link href={`/Search/${Results.page - 1}`}>
-                                        <button className='btn-sm btn ms-3 rounded-3 btn-danger'><i className="fa-solid fa-angles-right"></i></button>
-                                    </Link>
-                                }
-                            </div>
-
-                        </div>
+                        <PagesButtons movies={Results} pageLink={`/Search`} />
                     </>}
                 </div>
             </>}

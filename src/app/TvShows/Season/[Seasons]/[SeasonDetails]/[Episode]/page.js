@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-key */
-import Link from 'next/link';
 import React from 'react'
+import { fetchEpisodeCast, fetchEpisodeDetails, fetchSeasonDetails, fetchShowDetails, imgBaseUrl } from '../../../../../utils';
+import Image from 'next/image';
+import { CastDetails, Episodes, Seasons } from '../../../../../components';
 
 export const metadata = {
     title: "Tv Show Episode",
@@ -13,237 +15,111 @@ async function EpisodeDetails({ params }) {
     const seasonNum = params.SeasonDetails
     const episodeNum = params.Episode
 
-    const baseURL = 'https://image.tmdb.org/t/p/w500';
+    const ShowDetails = await fetchShowDetails(ShowId)
 
-    const options = {
-        method: 'GET',
-        headers: {
-            accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmYzZGJkZWM5NmY5MDg1NDEwN2IyM2ZmMTRhMGQ3ZSIsInN1YiI6IjY1ODhjMmI0NGRhM2Q0NjRjYTQxODhkNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CLtVHt8DtHtNC_v2wKKAxtJOZMP6GZ-NlE7ed3sk2gY'
-        }
-    };
+    const EpisodeDetails = await fetchEpisodeDetails(ShowId, seasonNum, episodeNum)
 
-    const response0 = await fetch(`https://api.themoviedb.org/3/tv/${ShowId}`, options, {
-        next: {
-            revalidate: 300
-        }
-    })
-    const ShowDetails = await response0.json()
+    const SeasonDetails = await fetchSeasonDetails(ShowId, seasonNum)
 
-    const response = await fetch(`https://api.themoviedb.org/3/tv/${ShowId}/season/${seasonNum}/episode/${episodeNum}`, options, {
-        next: {
-            revalidate: 300
-        }
-    })
-    const EpisodeDetails = await response.json()
-
-    const response2 = await fetch(`https://api.themoviedb.org/3/tv/${ShowId}/season/${seasonNum}`, options, {
-        next: {
-            revalidate: 300
-        }
-    })
-    const SeasonDetails = await response2.json()
-
-    const response1 = await fetch(`https://api.themoviedb.org/3/tv/${ShowId}/season/${seasonNum}/episode/${episodeNum}/credits`, options, {
-        next: {
-            revalidate: 300
-        }
-    })
-    const Cast = await response1.json()
+    const Cast = await fetchEpisodeCast(ShowId, seasonNum, episodeNum)
 
     return <>
 
-        <div className='container text-white  '>
+        <div className='container text-white '>
+
+            {/* details */}
             <div className='row  my-2 text-center '>
                 <div className='col-lg-6 px-3 col-md-12 my-4 ' >
-                    <h3 className='title fw-bolder text-center text-warning px-2 mt-2 mb-1'> {EpisodeDetails.name} </h3>
+                    <h3 className='title fw-bolder text-center text-warning px-2 mt-2 mb-1'>{EpisodeDetails.name}</h3>
                     {EpisodeDetails.still_path === null ?
-                        <img alt='poster' src="/download4.jpg" className='w-100 m-2 mt-5 rounded-2' />
+                        <Image src="/download4.jpg" className='w-100 mt-5 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                         :
-                        <img alt='poster' src={baseURL + EpisodeDetails.still_path} className='w-100  mt-5 rounded-2' />
+                        <Image src={imgBaseUrl + EpisodeDetails.still_path} className='w-100 mt-5 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                     }
                 </div>
                 <div className='py-2 mt-5 col-lg-5 col-md-12  movie-Content'>
                     <div className='px-3'><h5> <i className="fa-solid fa-tv text-warning  me-1"></i> Tv Series</h5> </div>
-                    <hr className='text-white details-hr ' />
+                    <hr className=' details-hr ' />
 
                     <div className='d-flex px-3 flex-nowrap'>
                         <span className='text-warning  px-1'>Tv Show :</span>
                         <h5 className='title   px-2  '> {ShowDetails.name}</h5>
                     </div>
-                    <hr className='text-white details-hr ' />
+                    <hr className=' details-hr ' />
 
                     <h5 className='title fw-bolder px-3 text-warning py-2 mb-1'> {SeasonDetails.name} </h5>
-                    <hr className='text-white details-hr ' />
+                    <hr className=' details-hr ' />
 
                     <div><span className='text-warning px-3  '>Episode Number :</span>
-                        <span className=' '>{EpisodeDetails.episode_number}</span>
+                        <span>{EpisodeDetails.episode_number}</span>
                     </div>
-                    <hr className='text-white details-hr ' />
+                    <hr className=' details-hr ' />
 
 
                     <div><span className='text-warning  px-3'>Rate :</span>
                         {SeasonDetails.vote_average === 0 ? <span className=''> Not Rated</span> : <>
-                            <span className=' '> imdb  {SeasonDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i>
+                            <span> imdb  {SeasonDetails.vote_average.toString(10).split('').splice(0, 3).join('')}/10 </span> <i className="fa-solid text-warning px-1 mt-1 fs-6 fa-star"></i>
                         </>}
                     </div>
-                    <hr className='text-white details-hr ' />
+                    <hr className=' details-hr ' />
 
-                    <div><span className='text-warning px-3  px-1'>RunTime :</span>
+                    <div><span className='text-warning px-3'>RunTime :</span>
                         {EpisodeDetails.runtime === 0 || EpisodeDetails.runtime === null ? <span className='fst-italic '>Unknown</span> : <>
-                            <span className=' '>{EpisodeDetails.runtime}</span>
+                            <span>{EpisodeDetails.runtime}</span>
                             <span className='text-danger'> mins </span>
                         </>}
                     </div>
-                    <hr className='text-white details-hr ' />
+                    <hr className=' details-hr ' />
 
-                    <div><span className='text-warning px-3  px-1'>Air Date :</span>
-                        {EpisodeDetails.air_date === "" ? <span className='fst-italic'>Unknown</span> :
-                            <span className=' '>{EpisodeDetails.air_date}</span>
+                    <div><span className='text-warning px-3'>Air Date :</span>
+                        {EpisodeDetails.air_date === "" || EpisodeDetails.air_date === null ? <span className='fst-italic'>Unknown</span> :
+                            <span>{EpisodeDetails.air_date}</span>
                         }
                     </div>
-                    <hr className='text-white details-hr ' />
+                    <hr className='details-hr' />
                 </div>
             </div>
-
-            <div className='container mt-2 mb-5 ms-2 col-lg-6 col-md-12  text-white  '>
-                <div className='text-center'>
-                    <span className='text-warning  px-1'>Story :</span> {EpisodeDetails.overview}
-                </div>
-            </div>
-            <hr className='text-white details-hr' />
-        
-
-        <div className='container row d-flex justify-content-center text-white '>
-            <div className='d-flex my-4'>
-                <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> {SeasonDetails.name} Episodes :</h2>
-            </div>
-            {SeasonDetails.episodes.length > 25 ? <>
-                <div className='col-lg-8 col-10 cast-contain rounded-4 cast-contain'>
-                    <div className='row d-flex align-items-center'>
-                        {SeasonDetails.episodes.map((episode) =>
-                            <div className='col-lg-3 col-md-4 col-6 my-2  '>
-                                <Link href={`/TvShows/Season/${ShowId}/${SeasonDetails.season_number}/${episode.episode_number}`}>
-                                    <div className='d-flex align-items-center flex-column img-content'>
-                                        {episode.episode_number === EpisodeDetails.episode_number ? <>
-                                            {episode.still_path === null ?
-                                                <img alt='poster' src="/download4.jpg" className='w-100 m-2 rounded-2' />
-                                                :
-                                                <img alt='poster' src={baseURL + episode.still_path} className='w-100 m-2 rounded-2' />}
-                                            <span className='text-warning fs-6 fw-bolder' > Episode  {episode.episode_number} </span>
-                                        </> : <>{episode.still_path === null ?
-                                            <img alt='poster' src="/download4.jpg" className='w-75 m-2 rounded-2' />
-                                            :
-                                            <img alt='poster' src={baseURL + episode.still_path} className='w-75 m-2 rounded-2' />}
-                                            <span >Episode  {episode.episode_number}</span>
-                                        </>
-                                        }
-                                    </div>
-                                </Link>
-                            </div>
-                        )}
+            {EpisodeDetails.overview === '' ? null : <>
+                <div className='container mt-2 mb-5 ms-2 col-lg-6 col-md-12    '>
+                    <div className='text-center'>
+                        <span className='text-warning  px-1'>Story :</span> {EpisodeDetails.overview}
                     </div>
-                </div>
-            </> : <>
-                <div className='row align-items-center text-center ms-2 text-white'>
-
-                    {SeasonDetails.episodes.map((episode) =>
-                        <div className=' col-md-3 col-sm-4 col-6  my-2  '>
-                            <Link href={`/TvShows/Season/${ShowId}/${SeasonDetails.season_number}/${episode.episode_number}`}>
-                                <div className='d-flex align-items-center flex-column img-content'>
-                                    {episode.episode_number === EpisodeDetails.episode_number ? <>
-                                        {episode.still_path === null ?
-                                            <img alt='poster' src="/download4.jpg" className='w-100 m-2 rounded-2' />
-                                            :
-                                            <img alt='poster' src={baseURL + episode.still_path} className='w-100 m-2 rounded-2' />
-                                        }
-                                        <span className='text-warning fs-6 fw-bolder' > Episode  {episode.episode_number} </span>
-                                    </> : <>
-                                        {episode.still_path === null ?
-                                            <img alt='poster' src="/download4.jpg" className='w-75 m-2 rounded-2' />
-                                            :
-                                            <img alt='poster' src={baseURL + episode.still_path} className='w-75 m-2 rounded-2' />
-                                        }
-                                        <span >Episode  {episode.episode_number}</span>
-                                    </>
-                                    }
-                                </div>
-                            </Link>
-                        </div>
-                    )}
                 </div>
             </>}
-        </div>
+            <hr className=' details-hr' />
 
 
-        {Cast.guest_stars.length === 0 && Cast.crew.length === 0 ? null : <>
-            <div className='container my-3 row d-flex justify-content-center text-white'>
-                <hr className='text-white  w-75 text-center mt-3 ' />
-                <h2 className='py-4 text-center'>Cast</h2>
-                <div className='col-lg-8 col-10 cast-contain rounded-4 '>
-                    <div className='row '>
-                        {Cast.guest_stars.length !== 0 ? <>
-                            {Cast.guest_stars.map((actor) =>
-                                <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
-                                    {actor.profile_path === null ?
-                                        <img alt='poster' src="/download3.jpg" className=' w-50 rounded-5' /> :
-                                        <img alt='poster' src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
-                                    <span>{actor.name}</span>
-                                    <span className='text-warning text-center'>{actor.character}</span>
-                                </div>
-                            )} </> :
-                            <>
-                                {Cast.crew.map((actor) =>
-                                    <div className='col-lg-4 col-6 py-3 d-flex align-items-center flex-column'>
-                                        {actor.profile_path === null ?
-                                            <img alt='poster' src="/download3.jpg" className=' w-50 rounded-5' /> :
-                                            <img alt='poster' src={baseURL + actor.profile_path} className='w-50  rounded-5' />}
-                                        <span>{actor.name}</span>
-                                        <span className='text-warning'>{actor.job}</span>
-                                    </div>
-                                )}
-                            </>}
+            {/* episodes */}
+            <Episodes SeasonDetails={SeasonDetails} ShowId={ShowId} EpisodeDetails={EpisodeDetails} />
+
+
+            {/* cast */}
+            {Cast.guest_stars.length === 0 && Cast.crew.length === 0 ? null : <>
+                <div className='container my-3 row d-flex justify-content-center '>
+                    <hr className='  w-75 text-center mt-3 ' />
+                    <h2 className='py-4 text-center'>Cast</h2>
+                    <div className='col-lg-8 col-10 cast-contain rounded-4 '>
+                        <div className='row '>
+                            <CastDetails Cast={Cast} castType={Cast.guest_stars} />
+                        </div>
                     </div>
                 </div>
-            </div>
-        </>}
+            </>}
 
-        <div className='container mt-3 mb-5 row d-flex justify-content-center text-white '>
-            <div className='d-flex justify-content-center'>
-                <hr className='text-white  w-75  text-center mt-3 ' />
+
+            {/* seasons */}
+            <div className='container mt-3 mb-5 row d-flex justify-content-center  '>
+                <div className='d-flex justify-content-center'>
+                    <hr className='  w-75  text-center mt-3 ' />
+                </div>
+                <div className='d-flex my-4'>
+                    <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> All Seasons :</h2>
+                </div>
+
+                <div className='row text-center col-lg-10 col-12 recom-contain'>
+                    <Seasons ShowDetails={ShowDetails} ShowId={ShowId} />
+                </div>
             </div>
-            <div className='d-flex my-4'>
-                <h2 className=' ms-4 py-2'><i className="fa-solid fa-angles-right fs-4"></i> All Seasons :</h2>
-            </div>
-            <div className='row text-center col-lg-10 col-12 text-white recom-contain'>
-                {ShowDetails.seasons.map((show) =>
-                    <div className='col-lg-3 col-md-4 col-6  my-2  '>
-                        <Link href={`/TvShows/Season/${ShowId}/${show.season_number}`}>
-                            <div className='d-flex align-items-center flex-column img-content'>
-                                {show.name === SeasonDetails.name ?
-                                    <>{show.poster_path === null ?
-                                        <img alt='poster' src="/download3.jpg" className='w-100 m-2 rounded-2' />
-                                        :
-                                        <img alt='poster' src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
-                                    }
-                                        <span className='text-warning py-2 fw-bolder' > {show.name} </span>
-                                    </>
-                                    : <>{show.poster_path === null ?
-                                        <img alt='poster' src="/download3.jpg" className='w-100 m-2 rounded-2' />
-                                        :
-                                        <img alt='poster' src={baseURL + show.poster_path} className='w-100 m-2 rounded-2' />
-                                    }
-                                        <div className='d-flex '>
-                                            <span className=' py-2'>{show.name}</span>
-                                        </div>
-                                    </>
-                                }
-                            </div>
-                        </Link>
-                    </div>
-                )}
-            </div>
-        </div>
 
         </div >
     </>

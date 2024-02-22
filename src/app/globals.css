@@ -108,6 +108,12 @@ a:hover {
   }
 }
 
+hr{
+  opacity: .2;
+  color: white;
+  text-align: center;
+}
+
 .details-hr {
   border: 1px solid;
 }
