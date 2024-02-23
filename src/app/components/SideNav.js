@@ -68,7 +68,7 @@ export default function SideNav() {
                         </Link>
                     </div>
                 </div>
-                <div className='vl'></div>
+                <div className='v1'></div>
             </div>
         </div>
     )

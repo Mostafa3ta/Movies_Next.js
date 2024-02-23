@@ -41,7 +41,7 @@ async function MovieDetails({ params }) {
                     <div className='px-1'><h4> <i className="fa-solid fa-film text-danger fs-4 me-1"></i> Movie</h4> </div>
                     <hr className='details-hr ' />
 
-                    <div><span className='text-warning px-1'>Geners :</span> <span className='d-flex flex-wrap'> {movieDetails.genres?.map((gener) => <span className='px-1'>
+                    <div className='d-flex flex-wrap'><span className='text-warning px-1'>Geners :</span><span> {movieDetails.genres?.map((gener) => <span className='px-1'>
                         {gener.name}</span>)} </span></div>
                     <hr className='details-hr ' />
 
@@ -112,7 +112,7 @@ async function MovieDetails({ params }) {
                     : <>
                         <h2 className='py-4 text-center'>Similar Movies</h2>
                         <div className='row col-lg-10 col-12 text-center my-2 recom-contain'>
-                            <Similar Recommend={Recommend} Simi={Simi} />
+                            <Similar Recommend={Recommend} Simi={Simi} detailsLink={`/Movies/AllMovies/MovieDetails`} />
                         </div >
                     </>}
             </div >

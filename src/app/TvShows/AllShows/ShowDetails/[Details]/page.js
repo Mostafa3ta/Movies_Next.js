@@ -41,7 +41,7 @@ async function ShowDetails({ params }) {
                     <div className='px-1' ><h5> <i className="fa-solid fa-tv text-warning  me-1"></i> Tv Series</h5> </div>
                     <hr className=' details-hr' />
 
-                    <div className='d-flex flex-wrap'><span className='text-warning px-1'>Geners : </span><span>{ShowDetails.genres.map((gener) =>
+                    <div className='d-flex flex-wrap'><span className='text-warning px-1'>Geners : </span><span>{ShowDetails.genres?.map((gener) =>
                         <span className='px-2'>{gener.name}</span>)}</span></div>
                     <hr className=' details-hr' />
 
@@ -138,7 +138,7 @@ async function ShowDetails({ params }) {
                     : <>
                         <h2 className='py-4 text-center'>Similar Shows</h2>
                         <div className='row col-lg-10 col-12 text-center my-2 recom-contain'>
-                            <Similar Recommend={Recommend} Simi={Simi} />
+                            <Similar Recommend={Recommend} Simi={Simi} detailsLink={`/TvShows/AllShows/ShowDetails`}/>
                         </div >
                     </>}
             </div >

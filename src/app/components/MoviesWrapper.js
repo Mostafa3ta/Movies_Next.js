@@ -7,7 +7,7 @@ import Image from 'next/image'
 export default function MoviesWrapper({ movies, pageLink, pageNavLink, show }) {
     return <>
         <div className='row text-center my-1'>
-            {movies.results.map((movie) =>
+            {movies.results?.map((movie) =>
                 <div className='col-lg-3 col-md-4 col-6  my-2 px-2' key={movie.title}>
                     <Link className='linkAttr' href={`${pageLink}/${movie.id}`}>
                         <div className='d-flex align-items-center flex-column img-content'>

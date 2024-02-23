@@ -1,11 +1,13 @@
+"use client"
+
 import Link from 'next/link'
 import React from 'react'
 
 export const metadata = {
-    title : "Not Found",
+    title: "Not Found",
 }
 
-function NotFound() {
+export default function error() {
     return <>
         <div className='container text-white'>
             <div className='row text-center justify-content-center mt-5 py-5 align-items-center '>
@@ -16,5 +18,3 @@ function NotFound() {
         </div>
     </>
 }
-
-export default NotFound
