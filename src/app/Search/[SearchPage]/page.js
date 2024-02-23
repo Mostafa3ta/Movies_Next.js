@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { PagesButtons } from '../../components'
 import { imgBaseUrl } from '../../utils'
+import Image from 'next/image'
 
 function Search() {
 
@@ -83,9 +84,9 @@ function Search() {
                                         <Link href={`/Movies/AllMovies/MovieDetails/${result.id}`}>
                                             <div className='d-flex align-items-center flex-column img-content'>
                                                 {result.poster_path === null ?
-                                                    <img src="/download3.jpg" className='w-75 m-2 rounded-2' />
+                                                    <Image src="/download3.jpg" className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                                     :
-                                                    <img src={imgBaseUrl + result.poster_path} className='rounded-2 w-75 m-2 movieCont ' />
+                                                    <Image src={imgBaseUrl + result.poster_path} className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                                 }
                                                 <i className="fa-regular fa-circle-play play-ico mt-5 py-5"></i>
                                                 <span > <i className="fa-solid fa-film text-danger px-1 fs-5 "></i> {result.title}</span>
@@ -95,9 +96,9 @@ function Search() {
                                         <Link href={`/TvShows/AllShows/ShowDetails/${result.id}`}>
                                             <div className='d-flex align-items-center flex-column img-content'>
                                                 {result.poster_path === null ?
-                                                    <img src="/download3.jpg" className='w-75 m-2 rounded-2' />
+                                                    <Image src="/download3.jpg" className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                                     :
-                                                    <img src={imgBaseUrl + result.poster_path} className='rounded-2 w-75 m-2 movieCont ' />
+                                                    <Image src={imgBaseUrl + result.poster_path} className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                                 }
                                                 <i className="fa-regular fa-circle-play play-ico mt-5 py-5"></i>
                                                 <span> <i className="fa-solid fa-tv text-warning px-2 fs-5"></i>{result.name}</span>
@@ -106,15 +107,15 @@ function Search() {
                                     </>}
                                 </> : <div className='d-flex align-items-center flex-column'>
                                     {result.profile_path === null ?
-                                        <img src="/download3.jpg" className='w-75 m-2 rounded-2' />
+                                        <Image src="/download3.jpg" className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                         :
-                                        <img src={imgBaseUrl + result.profile_path} className='rounded-2 w-75 m-2 movieCont ' />
+                                        <Image src={imgBaseUrl + result.profile_path} className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                     }
                                     <span> <i className="fa-solid fa-masks-theater text-warning px-2 fs-5"></i>{result.name}</span>
                                 </div>}
                             </div>
                         )}
-                        <PagesButtons movies={Results} pageLink={`/Search`} />
+                        <PagesButtons movies={Results} pageNavLink={`/Search`} />
                     </>}
                 </div>
             </>}
