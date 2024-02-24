@@ -32,9 +32,11 @@ async function EpisodeDetails({ params }) {
                 <div className='col-lg-6 px-3 col-md-12 my-4 ' >
                     <h3 className='title fw-bolder text-center text-warning px-2 mt-2 mb-1'>{EpisodeDetails.name}</h3>
                     {EpisodeDetails.still_path === null ?
-                        <Image src="/download4.jpg" className='w-100 mt-5 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                        // <Image src="/download4.jpg" className='w-100 mt-5 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                        <img src="/download4.jpg" className='w-100 mt-5 m-2 rounded-2' alt='poster'/>
                         :
-                        <Image src={imgBaseUrl + EpisodeDetails.still_path} className='w-100 mt-5 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                        <img src={imgBaseUrl + EpisodeDetails.still_path} className='w-100 mt-5 m-2 rounded-2' alt='poster'/>
+                        // <Image src={imgBaseUrl + EpisodeDetails.still_path} className='w-100 mt-5 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                     }
                 </div>
                 <div className='py-2 mt-5 col-lg-5 col-md-12  movie-Content'>

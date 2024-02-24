@@ -12,7 +12,8 @@ export default function ResponsiveNav() {
                     </Link>
                 </div>
                 <Link className="navbar-brand d-flex m-auto" href="/">
-                    <Image src="/movies-club.png" className='logo-ico h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                    {/* <Image src="/movies-club.png" className='logo-ico h-auto' alt='poster' priority width={0} height={0} sizes='100vw' /> */}
+                    <img src="/movies-club.png" className='logo-ico' alt='poster'/>
                 </Link>
                 <button className="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

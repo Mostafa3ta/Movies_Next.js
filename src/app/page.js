@@ -31,9 +31,11 @@ export default async function Home() {
               <Link href={`/TvShows/AllShows/ShowDetails/${show.id}`}>
                 <div className='d-flex align-items-center flex-column img-content'>
                   {show.poster_path === null ?
-                    <Image src="/download3.jpg" className='w-100 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                    // <Image src="/download3.jpg" className='w-100 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                    <img src="/download3.jpg" className='w-100 m-2 rounded-2' alt='poster'/>
                     :
-                    <Image src={imgBaseUrl + show.poster_path} className='w-100 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                    <img src={imgBaseUrl + show.poster_path} className='w-100 m-2 rounded-2' alt='poster'/>
+                    // <Image src={imgBaseUrl + show.poster_path} className='w-100 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                   }
                   <span>{show.name}</span>
                 </div>

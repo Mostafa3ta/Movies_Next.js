@@ -12,16 +12,20 @@ export default function Seasons({ ShowDetails, ShowId }) {
                     <div className='d-flex align-items-center  flex-column img-content'>
                         {show.name === ShowDetails.name ? <>
                             {show.poster_path === null ?
-                                <Image src="/download3.jpg" className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                // <Image src="/download3.jpg" className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src="/download3.jpg" className='w-100 m2 rounded-2' alt='poster'/>
                                 :
-                                <Image src={imgBaseUrl + show.poster_path} className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src={imgBaseUrl + show.poster_path} className='w-100 m2 rounded-2' alt='poster'/>
+                                // <Image src={imgBaseUrl + show.poster_path} className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                             }
                             <span className='text-warning py-2 fw-bolder' > {show.name} </span>
                         </> : <>
                             {show.poster_path === null ?
-                                <Image src="/download3.jpg" className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                // <Image src="/download3.jpg" className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src="/download3.jpg" className='w-100 m2 rounded-2' alt='poster'/>
                                 :
-                                <Image src={imgBaseUrl + show.poster_path} className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src={imgBaseUrl + show.poster_path} className='w-100 m2 rounded-2' alt='poster'/>
+                                // <Image src={imgBaseUrl + show.poster_path} className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                             }
                             <div className='d-flex '>
                                 <span className=' py-2'>{show.name}</span>

@@ -11,9 +11,11 @@ export default function Similar({ Recommend, Simi, detailsLink }) {
                     <Link href={`${detailsLink}/${show.id}`}>
                         <div className='d-flex align-items-center flex-column img-content'>
                             {show.poster_path === null ?
-                                <Image src="/download3.jpg" className='rounded-2 w-100 movieCont h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                // <Image src="/download3.jpg" className='rounded-2 w-100 movieCont h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src="/download3.jpg" className='rounded-2 w-100 movieCont' alt='poster' />
                                 :
-                                <Image src={imgBaseUrl + show.poster_path} className='rounded-2 w-100 movieCont h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src={imgBaseUrl + show.poster_path} className='w-100 rounded-2 movieCont' alt='poster' />
+                                // <Image src={imgBaseUrl + show.poster_path} className='rounded-2 w-100 movieCont h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                             }
                             <span> {show.name ? show.name : show.title}</span>
                         </div>
@@ -26,9 +28,11 @@ export default function Similar({ Recommend, Simi, detailsLink }) {
                     <Link href={`${detailsLink}/${show.id}`}>
                         <div className='d-flex align-items-center flex-column img-content'>
                             {show.poster_path === null ?
-                                <Image src="/download3.jpg" className='rounded-2 w-100 movieCont h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                // <Image src="/download3.jpg" className='rounded-2 w-100 movieCont h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src="/download3.jpg" className='rounded-2 w-100 movieCont' alt='poster' />
                                 :
-                                <Image src={imgBaseUrl + show.poster_path} className='w-100 rounded-2 movieCont h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src={imgBaseUrl + show.poster_path} className='w-100 rounded-2 movieCont' alt='poster' />
+                                // <Image src={imgBaseUrl + show.poster_path} className='w-100 rounded-2 movieCont h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                             }
                             <span> {show.name ? show.name : show.title}</span>
                         </div>

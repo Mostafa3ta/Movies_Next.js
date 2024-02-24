@@ -12,9 +12,11 @@ export default function MoviesWrapper({ movies, pageLink, pageNavLink, show }) {
                     <Link className='linkAttr' href={`${pageLink}/${movie.id}`}>
                         <div className='d-flex align-items-center flex-column img-content'>
                             {movie.poster_path === null ?
-                                <Image src="/download3.jpg" className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                // <Image src="/download3.jpg" className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src="/download3.jpg" className='w-75 m-2 rounded-2' alt='poster'/>
                                 :
-                                <Image src={imgBaseUrl + movie.poster_path} className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                <img src={imgBaseUrl + movie.poster_path} className='w-75 m-2 rounded-2' alt='poster'/>
+                                // <Image src={imgBaseUrl + movie.poster_path} className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                             }
                             <i className="fa-regular fa-circle-play play-ico mt-5 py-5"></i>
                             <span className='title'> {movie.title ? movie.title : movie.name}</span>

@@ -3,9 +3,9 @@ import Link from 'next/link'
 import React from 'react'
 import { imgBaseUrl } from '../utils'
 
-export default function Episodes({ SeasonDetails, ShowId , EpisodeDetails }) {
+export default function Episodes({ SeasonDetails, ShowId, EpisodeDetails }) {
     return <>
-    
+
         {SeasonDetails.episodes.length === 0 ? <>
             <div className='container '>
                 <div className='d-flex my-2'>
@@ -31,16 +31,20 @@ export default function Episodes({ SeasonDetails, ShowId , EpisodeDetails }) {
                                             {/* mark selected episode */}
                                             {episode.episode_number === EpisodeDetails?.episode_number ? <>
                                                 {episode.still_path === null ?
-                                                    <Image src="/download4.jpg" className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                    // <Image src="/download4.jpg" className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                    <img src="/download4.jpg" className='w-100 m2 rounded-2' alt='poster' />
                                                     :
-                                                    <Image src={imgBaseUrl + episode.still_path} className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                    <img src={imgBaseUrl + episode.still_path} className='w-100 m2 rounded-2' alt='poster' />
+                                                    // <Image src={imgBaseUrl + episode.still_path} className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                                 }
                                                 <span className='text-warning fs-6 fw-bolder' > Episode  {episode.episode_number} </span>
                                             </> : <>
                                                 {episode.still_path === null ?
-                                                    <Image src="/download4.jpg" className='w-75 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                    // <Image src="/download4.jpg" className='w-75 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                    <img src="/download4.jpg" className='w-100 m2 rounded-2' alt='poster' />
                                                     :
-                                                    <Image src={imgBaseUrl + episode.still_path} className='w-75 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                    <img src={imgBaseUrl + episode.still_path} className='w-100 m2 rounded-2' alt='poster' />
+                                                    // <Image src={imgBaseUrl + episode.still_path} className='w-75 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                                 }
                                                 <span >Episode  {episode.episode_number}</span>
                                             </>
@@ -61,16 +65,20 @@ export default function Episodes({ SeasonDetails, ShowId , EpisodeDetails }) {
                                         {/* mark selected episode */}
                                         {episode.episode_number === EpisodeDetails?.episode_number ? <>
                                             {episode.still_path === null ?
-                                                <Image src="/download4.jpg" className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                // <Image src="/download4.jpg" className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                <img src="/download4.jpg" className='w-100 m2 rounded-2' alt='poster' />
                                                 :
-                                                <Image src={imgBaseUrl + episode.still_path} className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                <img src={imgBaseUrl + episode.still_path} className='w-100 m2 rounded-2' alt='poster' />
+                                                // <Image src={imgBaseUrl + episode.still_path} className='w-100 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                             }
                                             <span className='text-warning fs-6 fw-bolder' > Episode  {episode.episode_number} </span>
                                         </> : <>
                                             {episode.still_path === null ?
-                                                <Image src="/download4.jpg" className='w-75 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                // <Image src="/download4.jpg" className='w-75 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                <img src="/download4.jpg" className='w-100 m2 rounded-2' alt='poster' />
                                                 :
-                                                <Image src={imgBaseUrl + episode.still_path} className='w-75 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                                                <img src={imgBaseUrl + episode.still_path} className='w-100 m2 rounded-2' alt='poster' />
+                                                // <Image src={imgBaseUrl + episode.still_path} className='w-75 m2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                             }
                                             <span >Episode  {episode.episode_number}</span>
                                         </>

@@ -28,9 +28,11 @@ async function MovieDetails({ params }) {
             <div className='row  text-center align-items-center'>
                 <div className='col-lg-5 col-md-12  ' >
                     {movieDetails.poster_path === null ?
-                        <Image src="/download3.jpg" className='w-75 m-2 mt-5 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                        // <Image src="/download3.jpg" className='w-75 m-2 mt-5 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                        <img src="/download3.jpg" className='w-75 m-2 mt-5 rounded-2' alt='poster'/>
                         :
-                        <Image src={imgBaseUrl + movieDetails.poster_path} className='w-75 m-2 mt-5 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
+                        <img src={imgBaseUrl + movieDetails.poster_path} className='w-75 m-2 mt-5 rounded-2' alt='poster'/>
+                        // <Image src={imgBaseUrl + movieDetails.poster_path} className='w-75 m-2 mt-5 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                     }
 
                 </div>
