@@ -114,7 +114,7 @@ function Search() {
                                         // <Image src="/download3.jpg" className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                         <img src="/download3.jpg" className='w-75 m-2 rounded-2' alt='poster' />
                                         :
-                                        <img src={imgBaseUrl + result.poster_path} className='w-75 m-2 rounded-2' alt='poster' />
+                                        <img src={imgBaseUrl + result.profile_path} className='w-75 m-2 rounded-2' alt='poster' />
                                         // <Image src={imgBaseUrl + result.profile_path} className='w-75 m-2 rounded-2 h-auto' alt='poster' priority width={0} height={0} sizes='100vw' />
                                     }
                                     <span> <i className="fa-solid fa-masks-theater text-warning px-2 fs-5"></i>{result.name}</span>
